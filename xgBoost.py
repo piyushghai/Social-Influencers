@@ -6,6 +6,7 @@ import xgboost as xgb
 import load_test_data
 import pre_process
 import write_to_csv
+import roc_curves
 from sklearn.model_selection  import GridSearchCV
 from sklearn.metrics import accuracy_score
 
@@ -20,13 +21,13 @@ def parameterTuning(X,Y):
     print(optimized_GBM.grid_scores_)
     print(optimized_GBM.best_params_)
 
-def model(X,Y,X_test):
+def model(X,Y,X_test,X_dev):
     xgdmat = xgb.DMatrix(X, Y)
 
-     # our_params = {'eta': 0.000001, 'seed':0, 'subsample': 0.5, 'colsample_bytree': 0.8,
-     #              'objective': 'binary:logistic', 'max_depth':7, 'min_child_weight':15,'cv':5}
-    our_params = {'eta': 0.000001, 'seed': 0, 'subsample': 0.8, 'colsample_bytree': 0.8,
-                  'objective': 'binary:logistic', 'max_depth': 100, 'min_child_weight': 1, 'cv': 5}
+    our_params = {'eta': 0.001, 'seed':0, 'subsample': 0.3, 'colsample_bytree': 0.5,
+                   'objective': 'binary:logistic', 'max_depth':3, 'min_child_weight':5,'cv':5,'n_estimators': 10}
+    # our_params = {'eta': 0.000001, 'seed': 0, 'subsample': 0.8, 'colsample_bytree': 0.8,
+    #               'objective': 'binary:logistic', 'max_depth': 100, 'min_child_weight': 1, 'cv': 5}
 
     final_gb = xgb.train(our_params, xgdmat, num_boost_round=5000)
 
@@ -37,7 +38,12 @@ def model(X,Y,X_test):
 
     testdmat = xgb.DMatrix(X_test)
     y_pred = final_gb.predict(testdmat)
+
+    devdmat = xgb.DMatrix(X_dev)
+    y_preddev = final_gb.predict(devdmat)
+
     write_to_csv.writeToCSV('predBoost.csv', y_pred)
+    return y_preddev
 
 if __name__ == "__main__":
     X_train, Y_train, X_dev, Y_dev = pre_process.preprocessData('train.csv')
@@ -48,5 +54,7 @@ if __name__ == "__main__":
             Y_train[i] = 0
 
     #parameterTuning(X_train,Y_train)
-    model(X_train,Y_train,X_test)
+    devPred = model(X_train,Y_train,X_test,X_dev)
+    roc_curves.plotROCCuves(Y_dev, devPred, 'boost', 'XGBoost')
+
 
