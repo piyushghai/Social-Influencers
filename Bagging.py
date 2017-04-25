@@ -10,7 +10,7 @@ X_train, Y_train, X_dev, Y_dev = pre_process.preprocessData('train.csv')
 X_test, Y_test = load_test_data.loadTestData('test.csv')
 
 if __name__ == "__main__":
-    model = ensemble.GradientBoostingClassifier(learning_rate=0.002, max_depth=10)
+    model = ensemble.GradientBoostingClassifier(learning_rate=0.01, max_depth=20)
     model.fit(X_train, Y_train)
 
     probs_tr = model.predict_proba(X_train)
