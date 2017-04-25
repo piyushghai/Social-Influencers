@@ -4,7 +4,10 @@ import numpy as np
 def loadTestData(filename):
     testfile = open(filename)
     # ignore the test header
-    testfile.next()
+    for line in testfile:
+        head = line.rstrip().split(',')
+        break
+
 
     X_test_A = []
     X_test_B = []
