@@ -33,5 +33,14 @@ Without Feature Selection
 ROC _ Train  --  0.857433415291
 ROC _ Dev  --  0.888784687154
 
+======== LR - LogLoss -===========
+ROC _ Train  --  0.850868289535    best values on : lmda = 0.001, eta = 0.0001
+ROC _ Dev  --  0.88384712804
+
+
+ROC _ Train  --  0.857227119806
+ROC _ Dev  --  0.889249587201
+
+
 
 
