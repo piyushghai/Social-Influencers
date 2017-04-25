@@ -1,3 +1,4 @@
+import matplotlib.pyplot as plt
 from sklearn import linear_model
 from sklearn.metrics import roc_curve, auc
 
@@ -8,7 +9,7 @@ X_train, Y_train, X_dev, Y_dev = pre_process.preprocessData('train.csv')
 X_test, Y_test = load_test_data.loadTestData('test.csv')
 
 if __name__ == "__main__":
-    model = linear_model.LogisticRegression(fit_intercept=False, max_iter=10, penalty='l2', verbose=1, C=0.001)
+    model = linear_model.LogisticRegression(fit_intercept=False, max_iter=10, penalty='l2', verbose=1, C=1.0)
     model.fit(X_train, Y_train)
 
     p_train = model.predict_proba(X_train)[:, 1]
@@ -33,15 +34,15 @@ if __name__ == "__main__":
     print "ROC _ Dev  -- ", roc_auc
     roc_label = '{0} {1:0.5f}'.format("Logistic Regression - Dev", roc_auc)
 
-    # plt.plot(false_positive_rate, true_positive_rate, 'r--', label=roc_label, linestyle='dotted', linewidth=0.5)
-    #
-    # # Graph Labels
-    # plt.title('Receiver Operating Characteristic (ROC)')
-    # plt.legend(loc='lower right')
-    # plt.plot([0, 1], [0, 1], 'k--')  # plot the diagonal
-    # plt.xlim([-0.1, 1.2])
-    # plt.ylim([-0.1, 1.2])
-    # plt.ylabel('True Positive Rate')
-    # plt.xlabel('False Positive Rate')
-    #
-    # plt.savefig('lr_.png')
+    plt.plot(false_positive_rate, true_positive_rate, 'r--', label=roc_label, linestyle='dotted', linewidth=0.5)
+
+    # Graph Labels
+    plt.title('Receiver Operating Characteristic (ROC)')
+    plt.legend(loc='lower right')
+    plt.plot([0, 1], [0, 1], 'k--')  # plot the diagonal
+    plt.xlim([-0.1, 1.2])
+    plt.ylim([-0.1, 1.2])
+    plt.ylabel('True Positive Rate')
+    plt.xlabel('False Positive Rate')
+
+    plt.savefig('lr_.png')

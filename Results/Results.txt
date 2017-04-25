@@ -15,5 +15,23 @@
 
 
 =========== LR Best Model ================
+With Feature Selection (C = 0.001)
+
 ROC _ Train  --  0.857437576411
 ROC _ Dev  --  0.888752625082
+
+Without Feature Selection
+
+ROC _ Train  --  0.849165911664
+ROC _ Dev  --  0.88155468988
+
+With Feature Selection (C = 1.0)
+ROC _ Train  --  0.859920004084
+ROC _ Dev  --  0.893481780727
+
+Without Feature Selection
+ROC _ Train  --  0.857433415291
+ROC _ Dev  --  0.888784687154
+
+
+

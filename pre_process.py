@@ -48,8 +48,8 @@ def preprocessData(filename):
     X_train = X_t
     Y_train = y_t
 
-    X_train = X_train[:, [2, 5, 8, 9]]
-    X_dev = X_dev[:, [2, 5, 8, 9]]
+    # X_train = X_train[:, [2, 5, 8, 9]]
+    # X_dev = X_dev[:, [2, 5, 8, 9]]
 
     return X_train, Y_train, X_dev, y_dev
 
@@ -59,11 +59,11 @@ def transform_features(x):
 
 
 def normalize(X):
-    # X_norm = X
-    # cols = X.shape[1]
-    # for i in range(cols):
-    #     m = np.mean(X[:, i])
-    #     std = np.std(X[:, i])
-    #     X_norm[:, i] = (X[:, i] - m) / std
-    # return X_norm
-    return X
+    X_norm = X
+    cols = X.shape[1]
+    for i in range(cols):
+        m = np.mean(X[:, i])
+        std = np.std(X[:, i])
+        X_norm[:, i] = (X[:, i] - m) / std
+    return X_norm
+    # return X
