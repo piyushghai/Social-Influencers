@@ -14,7 +14,7 @@ X_test, Y_test = load_test_data.loadTestData('test.csv')
 
 if __name__ == "__main__":
     seed = 1729
-    kfold = model_selection.KFold(n_splits=20, random_state=seed)
+    kfold = model_selection.KFold(n_splits=10, random_state=seed)
     cart = DecisionTreeClassifier()
     num_trees = 200
     model = BaggingClassifier(base_estimator=cart, n_estimators=num_trees, random_state=seed)
