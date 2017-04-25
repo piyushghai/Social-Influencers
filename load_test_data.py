@@ -8,7 +8,6 @@ def loadTestData(filename):
         head = line.rstrip().split(',')
         break
 
-
     X_test_A = []
     X_test_B = []
     Y_test = []
@@ -28,6 +27,8 @@ def loadTestData(filename):
     X_test = normalize(X_test)
 
     Y_test = getYLabels()
+
+    X_test = X_test[:, [2, 5, 8, 9]]
 
     return X_test, Y_test
 

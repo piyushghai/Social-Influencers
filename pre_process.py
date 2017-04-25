@@ -48,6 +48,9 @@ def preprocessData(filename):
     X_train = X_t
     Y_train = y_t
 
+    X_train = X_train[:, [2, 5, 8, 9]]
+    X_dev = X_dev[:, [2, 5, 8, 9]]
+
     return X_train, Y_train, X_dev, y_dev
 
 
