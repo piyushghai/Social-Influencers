@@ -10,22 +10,23 @@ from sklearn.model_selection  import GridSearchCV
 from sklearn.metrics import accuracy_score
 
 def parameterTuning(X,Y):
-    cv_params = {'learning_rate': [0.004, 0.005, 0.006], 'subsample': [0.7, 0.8, 0.9], 'max_depth': [3, 5, 7, 8, 9],
-                 'min_child_weight': [1, 3, 5]}
+    cv_params = {'learning_rate': [0.001,0.002,0.003,0.004, 0.005, 0.006,0.007], 'subsample': [0.5,0.7, 0.8, 0.9], 'max_depth': [1,3, 5, 7, 8, 9],
+                 'min_child_weight': [1, 3, 5,7]}
     ind_params = {'n_estimators': 1000, 'seed': 0, 'colsample_bytree': 0.8,
-                  'objective': 'binary:logistic', 'min_child_weight': 1}
+                  'objective': 'binary:logistic'}
 
     optimized_GBM = GridSearchCV(xgb.XGBClassifier(**ind_params), cv_params, scoring = 'accuracy', cv = 5, n_jobs = -1)
     optimized_GBM.fit(X, Y)
     print(optimized_GBM.grid_scores_)
+    print(optimized_GBM.best_params_)
 
 def model(X,Y,X_test):
     xgdmat = xgb.DMatrix(X, Y)
 
-    # our_params = {'eta': 0.000001, 'seed':0, 'subsample': 0.5, 'colsample_bytree': 0.8,
-    #              'objective': 'binary:logistic', 'max_depth':7, 'min_child_weight':15,'cv':5}
-    our_params = {'eta': 0.005, 'seed': 0, 'subsample': 0.8, 'colsample_bytree': 0.8,
-                  'objective': 'binary:logistic', 'max_depth': 9, 'min_child_weight': 1, 'cv': 5}
+     # our_params = {'eta': 0.000001, 'seed':0, 'subsample': 0.5, 'colsample_bytree': 0.8,
+     #              'objective': 'binary:logistic', 'max_depth':7, 'min_child_weight':15,'cv':5}
+    our_params = {'eta': 0.000001, 'seed': 0, 'subsample': 0.8, 'colsample_bytree': 0.8,
+                  'objective': 'binary:logistic', 'max_depth': 100, 'min_child_weight': 1, 'cv': 5}
 
     final_gb = xgb.train(our_params, xgdmat, num_boost_round=5000)
 
@@ -46,5 +47,6 @@ if __name__ == "__main__":
         if Y_train[i] == -1:
             Y_train[i] = 0
 
+    #parameterTuning(X_train,Y_train)
     model(X_train,Y_train,X_test)
 
