@@ -1,7 +1,6 @@
-import numpy as np
-
-from sklearn.metrics import roc_curve, auc, roc_auc_score
 import matplotlib.pyplot as plt
+from sklearn.metrics import roc_curve, auc
+
 
 def plotROCCuves(y_test, y_pred, filename, label):
 	false_positive_rate, true_positive_rate, _ = roc_curve(y_test, y_pred)

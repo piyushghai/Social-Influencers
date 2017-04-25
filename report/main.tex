@@ -346,15 +346,39 @@
 \numberwithin{figure}{section}
 \numberwithin{table}{section}
 \usepackage{caption}
-
+\usepackage{listings}
+\usepackage{color}
+ 
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+ 
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+\lstset{style=mystyle}
 \begin{document}
-
 
 %
 % paper title
 % can use linebreaks \\ within to get better formatting as desired
-\title{Emotion Analysis using Word Embedding and Neural Network}
-
+\title{A Comparative study of different Machine Learning techniques on Kaggle Twitter Social Influencers Data Set}
 \author{\IEEEauthorblockN{Arora, Pragya\IEEEauthorrefmark{1},
 Ghai, Piyush\IEEEauthorrefmark{2}, Gupta, Harsh\IEEEauthorrefmark{3} and
 Ramkrishnan, Navnith\IEEEauthorrefmark{4}}
@@ -370,7 +394,8 @@ Email: \IEEEauthorrefmark{1}arora.170@osu.edu,
 
 \begin{abstract}
 %\boldmath
-Human computer interaction and its applications such as chat bots and voice assistants  will be more natural if computers are able to perceive and respond to human non-verbal communication such as emotions. Although a lot of work has been done in the field of sentiment analysis but relatively little work has been done to detect emotions such as joy, anger, surprise in a text. This paper tries to extract the embedding based on words from a text document and apply state of the art neural network techniques to predict what emotion the writer wants to convey from the text. We experimented on two approaches along with a baseline approach to extract emotion decision using word embeddings. We used ISEAR dataset to label seven emotions. The emotion classes are sadness, anger, joy, shame, disgust, guilt and fear. The results reveals that the system based on Long Short Term Memory (LSTM) gave better performance than the system based on Convolution Neural Networks (CNN) for the emotions considered. Results also show when our feature engineered vectors and Word2Vec were jointly learned, the performance and the robustness of the emotion recognition system improve measurably. 
+Social media like twitter has given advent to growing importance to understand the behavior of these networks. More importantly these graph networks shows different patterns which are interesting to analyze. Some nodes becomes almost a sink where as some node acts like a source of outgoing links. Understanding these patterns will help in various applications and specially in experiments like Network A/B Testing where we need to introduce some new features to a treatment group restricting the control group. In out project we intended to experiment and analyze on one such pattern where we try to identify which node is more influential when compared to another node. To understand such a behavior we used a Twitter network data set which had 11 features for each node and we applied machine learning techniques to understanding the underlying features to classify the task at hand.
+ 
 \end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
 % This preserves the distinction between vectors and scalars. However,
@@ -381,253 +406,310 @@ Human computer interaction and its applications such as chat bots and voice assi
 
 % Note that keywords are not normally used for peerreview papers.
 \section{Introduction}
-Emotion Analysis and Identification is the cornerstone of recent study in the fields of neuroscience, psychology, cognitive sciences and behavioral science as they serve as a good indicator of human nature. The major techniques to predict emotion are on the basis of supervised learning through hand annotated data to train and build predictive models. Despite these models achieving good results, the availability of large sets of tagged data and transferability of performance on different domains have been deterrents. 
+The growing importance of Social Networks has given an impetus to understand more about its implications because networks like these can influence millions of people. Contrary to paper or television media, social media is far more reaching to the audiences across the world and information exchange has never seen such a revolution. The need of the time is to have an The ability to understand the nuances of these networks because with more connectivity it becomes crucial to understand the behavior of different nodes in the network.
 
-In this paper, we use the ISEAR (International Survey on Emotion Antecedents and Reactions) Dataset \cite{iseardataset}, which comprises of 7516 sentences and seven emotion categories including : \textit{Anger}, \textit{Disgust}, \textit{Fear}, \textit{Guilt}, \textit{Joy}, \textit{Sadness}, \textit{Shame}. 
+Some nodes/users are more important than others as there behavior affects a larger sets of nodes in the graph. When a user of such a graph is using the network she/he may find some activity shared by some of the other nodes more striking than others. A lot of psychological and cognitive science study shows that ones life is greatly impacted by her/his immediately surrounding and their influence. As social network has become a part of everyone's life, it has become important which are the nodes which has more impact on others i.e which are influential. One application of such a study is to predict what is the general mood of the crowd during election by analyzing the social network handle of all the candidates who stood for it. 
 
-\section{Related Work}\label{sec:page-layout}
-This section expands on lexical resources and research work supporting work on Emotion Analysis from a corpora and gives a brief about other such novel methodologies. 
+In this project, we address a targeted challenge of this problem presented in a Kaggle competition from 2013 , in which influence on Twitter is predicted from a set of features derived from user activity on the network, such as follower count, retweets received, etc. Rather than identifying influencers in the larger network, we are asked to simply identify which of a pair of users, A and B, is more influential, based on information about their respective activity in the network. This is a binary-classification problem. To find an optimal prediction method, we applied pre-processing methods including feature transformations and dimensionality reduction via principal component analysis (PCA). We used four different machinelearning algorithms—Logistic Regression, Support Vector Machines (SVM), Neural Network, and Gradient Boosting—to model the data. We also tried varying some of the decision boundary options for the SVM by using different kernels and neural network classifiers by varying the activation functions on the hidden layer. Our approach includes a few methods that we did not see in other attempts at this problem, specifically a binary feature transformation, the application of principal component analysis, and gradient boosting. We found the most effective pre-processing method to be a logarithmic transformation of the data, while the most successful model was built with gradient boosting, which achieved an 0.869 AUC using a logarithm transform. Outside of gradient boosting, the model configurations which produced the best results used linear-like decision boundaries.
+ 
+
+\section{DATASET}\label{sec:page-layout}
+
+This section expands on the data set which we used to try the different models on. 
 
 
-\subsection{Lexical Resources}\label{sec:formatting}
-Lexical resources have long been used for emotion and opinion analysis. Strides in lexical resources began with a list of 1,336 hand annottated adjectives. Other advances include WordNet - Affect which comprises of hierarchial domain of affective labels. In the sphere of sentiment, SentiWordNet \cite{sentiword} accounts for opinion related properties of text. SentiFul database further assisted with automatic generated lexicons. Researchers came up with subjectivity lexicon which accounted for 8,000 words. 
+\subsection{Original Dataset}\label{sec:formatting}
+The data set which we used came from a Kaggle contest. The data set had a 
+\begin{itemize}
+  \item train.csv
+  \item test.csv
+  \item sample\_predicitions.csv
+\end{itemize}
+
+The train.csv file contains data points where each data point is a pair wise features for two users along with a binary value which reflects which user is more influential. If the value is 0 the first user is more influential and vice-verse. Each user has 11 unique features which are extracted from their twitter profile and recorded in numeric form. The 11 features extracted includes:
+
+\begin{itemize}
+  \item Follwers
+  \item Follwing
+  \item Listed
+  \item Mentions received
+  \item Re-tweets received
+  \item Mentions sent
+  \item Re-tweets sent
+  \item Posts
+  \item Network Feature 1
+  \item Network Feature 2
+  \item Network Feature 2
+\end{itemize}
+
+Similarly we have features for two users in each data item in the testing file but the testing file has no class label. There are 3000 training samples and 2500 testing samples in our data set. Given a test sample, our job is to predict which individual in this test sample is more influential.
+ 
 
 
 %% Notice that paragraph breaks are done with a blank line between paragraphs
 
 
-\subsection{Emotion Detection Approaches
+\subsection{Data Preprocessing
 }\label{sec:formatting-text}
 
-Classification of Emotion can be done based on the presence or absence of affective lexicons. Further distinction can be done based on keywords, linguistic rules and the application of machine learning approaches. 
-\subsubsection{ Keyword-based Techniques using Affective Lexicons}\label{sec:cap-num}
-Keyword-based approach is the most primitive form implemented at the base word level and such models are incapable of handling affect expressed by interrelated words. 
+Since the data is a numerical data, we use some pre-processing techniques on it. The dataset consists of 22 attributes which is essentially 11 attributes for each user in contention. Since we have to compare who is more influential in the network, we subtract related attributes for each user, to reduce the dimensionality to 11. The following is the transformation applied : 
+\begin{align*}
+a\textsubscript{j} = x\textsubscript{j} - x\textsubscript{j+11}, j = 1,2,3 .... , 11. 
+\end{align*}
+Since the attributes are of a different scale, we also apply a logarithmic transformation on the data. The following is the transformation applied :
+\begin{lstlisting}[language=Python, caption = Log Transformation ]
+def transform_features(x):
+    return np.log(1 + x)
+\end{lstlisting}
+All of these transformations are applied to all the models used.
+\section{SYSTEM MODELS
+}\label{sec:fig-tables}
 
-\subsubsection{Linguistic Rules-based Approaches}\label{sec:positioning}
-Computational linguists define linguistic structure based on a set of rules. 
 
+\subsection{Baseline}\label{sec:cap-num}
+For baseline, we tried a dumb baseline model, where we classified an influencer based on the number of followers, i.e. if X has more followers than Y, then X is more influential. Using this dumb baseline, we get an accuracy of about \textbf{70.2\%}. This result shows
+that the number of followers is a strong indicator
+of the influencers. However, 70.2\% is not a very satisfying result and hence we use it only as a benchmark. We know further experiment with more models and a bit more pre-processing.
+
+
+\subsection{Logistic Regression}\label{sec:colour-illustrations}
+First, we preprocess the original dataset using the
+previous method. After preprocessing the original
+dataset, different attributes have different ranges
+which vary a lot. Thus the first thing to do is to
+handle the data to make it more uniform and easy
+to deal with. So in order to achieve this, we have a
+normalization on the dataset. For each feature, we
+do the following normalization
+z¯
+(i)
+j =
+z
+(i)
+q
+j
+Pm
+i=1 z
+(i)2
+j
+, z = 1, 2, ..., n (4)
+where m is the number of training examples and n = 11 is the number of features. Because our job is to predict who is more influential given two persons, the number of followers, as we know, plays a significant rule in the prediction.
+A person with more followers than the other is more likely to be judged influential by users. So we will
+multiply the normalization of the first feature, i.e. number of followers, by a positive constant factor
+which is greater than 1 to make it more influential than other features on the prediction. For this logistic regression problem, we have two choices— gradient ascent and Newton’s method to achieve the parameter θ. Since the number of
+features n = 11 is not very large, so it will not take much time to compute the inverse of a n×n matrix.
+Thus Newton’s method should converge faster in this problem and we choose Newton’s method as our implementation. The update rule of the Newton’s method is:
+θ := θ − H
+−1∇θl(θ) (5)
+where H ∈ R
+n×n
+is the Hessian matrix and Hjk =
+−
+Pm
+i=1 hθ(¯z
+(i)
+)(1 − hθ(¯z
+(i)
+))¯z
+(i)
+j
+z¯
+(i)
+k
+, ∇θl(θ) =
+Z¯(~y − hθ(Z¯)).
+Furthermore, we will add cross validation and feature selection to this model, which will be discussed in details in section IV. We write our own code to implement the Newton’s method.
+
+
+\subsection{SVM}\label{sec:colour-illustrations}
+
+We applied the technique of SVM's with a linear kernel and the results were on par with those of Logistic Regression with an AUC of x. Since the original feature set consisted of 11 features, intuitively mapping them to a higher dimensional space wouldn't improve performance. Thus we preferred the linear kernel over the non-linear kernels since it is a simpler model and hence less prone to over-fitting. 
+
+Moreover, we add cross validation and feature
+selection to this model, which refers to section IV.
+
+\subsection{Gaussian Na{\"i}ve Bayes}\label{sec:colour-illustrations}
+Logistic regression and SVM are discriminative learning algorithms. Gaussian Na{\"i}ve Bayes, is a generative model. The distribution of the original data is not Gaussian, so we tried Z-Score normalization in order to make it as a Gaussian distribution. In Z-Score, we do the following for every value : 
+\begin{align*}
+z = \frac{x - \mu}{\sigma}
+\end{align*}
+This converts the data into 0 mean and deviation 1. We then used Gaussian Na{\"i}ve Bayes from \textit{sklearn} package.
+
+\subsection{Neural Network}\label{sec:colour-illustrations}
+We wanted to explore and see how the date set behave in a non-linear environment. The idea was to compare the traditional techniques alongside some state of the art machine learning models which have gained a lot of importance today. Hence we implemented a basic Neural Network model in Python to see how it behaves in this classification task. Our model was customizable which means we could add or remove any number of hidden layers with any number of units in each of them. To our surprise the model worked well but didn't outperform the traditional model. The intuition behind this is that the data set and the features we have are linearly separable. 
+
+\section{Tuning the Models}
+\subsection{Feature Selection}
+Since our dataset has 11 features, it is quite possible that there are some features which are not quite useful. We used forward selection algorithm to zero in on the best features in order to improve the test accuracy. We used Logistic Regression model in order to select the best accuracies for feature selection. The best features are as follows :
 \begin{itemize}
-\item Rule-based approaches with Affect Lexicons: Classification of emotions in news headlines is the main purpose behind the ESNA System \cite{esna}. UPAR7 has hand annotated seed words in emotion lists aided by rules which outline the main context and use dependency graphs to boost emotion ratings. Recent strides in rule-based approaches recognize up to nine emotions. General Inquirer and Wordnet explore the effect of conjuncts using techniques of syntax and lexical resources. The definition and deciphering of complex structures are well handled in comparison to designing and modification by these approaches. One flaw in affect lexicons is the inflexibility to handle emotions not listed. 
-
-\item Rule-based approaches without Affect Lexicons: In the absence of affect lexicons, semantic structure of language is the crux. Metaphorical data further aid in emotion recognition from text. These methods are flexible and relevant in real world implementation. The rules are structured and represent the extracted data in concurrence with the source. 
-
+\item Follower Count
+\item Listed\_Count
+\item Retweets Received
+\item Network Feature 1
+\item Network Feature 2
 \end{itemize}
 
+\subsection{Cross Validation}
+We use held out cross validation, where we partition 80\% of the data as the training set and 20\% of the data as the test set. 
 
-\subsection{Machine Learning Approaches}\label{sec:formatting-text}
-Machine learning techniques which can be broadly classified as supervised and unsupervised machine learning has been deployed to overcome the short falls of rule based methods which do not take into account all the possibly corner cases and is short at capturing the evolution of writing texts by human.
-
-\subsubsection{Supervised machine learning with affect lexicons}\label{sec:cap-num}
-Under this approach a database is created for the affect words where each affect word is divided into smaller classes to make it a find grained resource and now this resource is used for multi class classification of emotions. Models like Support Vector Machine is used under this technique. For supervised learning the problem is that we need a lot of data to train the classifier and then the trained model works on a domain specific data set, which is its disadvantage.
-
-\subsubsection{Supervised machine learning without affect lexicons}\label{sec:positioning}
-Using a BOW approach or a tf-idf approach works well even if we don't consider the affect words while training the model. Even this kind of technique suffers from the bias of giving good results only for data coming from a specific origin.
-
-\subsubsection{Unsupervised machine learning with affect lexicons}\label{sec:positioning}
-An evaluation of two unsupervised techniques using WordNet-Affect exploited a vector space model and a number of dimensionality reduction methods. News headlines have been classified using simple heuristics and more refined algorithms (e.g., similarity in a latent semantic space).
-
-\subsubsection{Unsupervised machine learning without affect lexicons}\label{sec:positioning} Latent Semantic analysis single word approach which compares the similarity between text documents and all the emotion labels along with LSA synsets and WordNet synsets.
+\section{Results \& Discussions}
+\subsection{Evaluation Criteria}
 
 
 
-\section{Proposed Approach}\label{sec:fig-tables}
-In our approach we have modeled our framework to run on state of the art machine learning algorithms and learn the context of the data using their vectors from Word2Vec \cite{word2vec} \& GloveVec \cite{glove}. After the model is trained on several hyper parameters we tested our model on unseen data set and calculated the accuracy which is better than baseline given in related papers. Our emotion recognition algorithm includes three main components: preprocessing, semantic transformation of Word embedding and application of Machine Learning algorithm. 
+\subsection{Logistic Regression \& SVM}
+In this section, we apply cross validation and
+feature selection to the linear models, i.e. Logistic
+Regression and SVM. The following figures compare
+the performance among different models.
+In Fig. 2, we use different cross validation options
+on linear models, such as hold-out and k-fold,
+Fig. 2. Test accuracy vs. cross validation options for linear models
+and compare their test accuracies. It is shown that
+cross validation can improve the test accuracy of
+SVM, while having no strong effect on Logistic
+Regression. What’s more, the performance of SVM
+is better than Logistic Regression using cross validation.
+Fig. 3. Test accuracy vs. discretization parameter for linear models
+Fig. 3 shows the test accuracies of SVM and Logistic
+Regression with different numbers of features
+selected. As is shown above, the performance of
+SVM is better, compared with logistic regression.
+The best performance of SVM is achieved when
+4 features are selected, which shows that some
+features are weak indicators. After feature selection,
+we sort the features from the most relevant to the
+least relevant as follows:
+SVM 9 6 7 10 8 5 3 2 1 4 11
+LR 3 6 8 2 9 5 4 7 1 11 10
+where the corresponding feature name refers to section
+II-A. From this table, we can see that although
+the sort results shown above are quite different for
+these two methods, their test accuracies are very
+close. Using linear models, the best accuracy we
+can achieve is 76.00% (highest test accuracy in Fig.
+2 and Fig. 3).
+\subsection{Naive Bayes}
+In this model, we compare the performances of
+different discretization parameters. Here we assume
+that all features have the same number of classes
+(the coordinate ascent based algorithm takes too
+much time). We also mentioned in section III-D that
+logarithm function is used to preprocess the data.
+2 3 4 5 6 7 8 9 10
+0.62
+0.64
+0.66
+0.68
+0.7
+0.72
+0.74
+0.76
+0.78
+0.8
+\# Classes of each attribute
+Accuracy
+With Logarithm
+Without Logarithm
+Fig. 4. Test accuracies vs. number of classes of each feature
+In Fig. 4, we also compare the performance with
+logarithm preprocessing and the one without logarithm
+processing. We can see that logarithm processing
+helps increase the test accuracy and when the
+number of classes of each feature increases, their
+performances approaches. In addition, it turns out
+that different discretization parameters don’t have
+much impact on test accuracy. In this case, the best
+test accuracy is 76.48%.
+\subsection{Neural Network}
+In this model, we use 50 neurons in the hidden
+layer. We also apply hold-out cross validation with
+30% as the validation set. The ROC (Receiver
+Operating Characteristic) curves are shown in Fig.
+5. After training the two-layer network, we get the
+test accuracy 79.04%, which corresponds to the
+area under the test ROC curve.
+0 0.2 0.4 0.6 0.8 1
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+False Positive Rate
+True Positive Rate
+Training ROC
+0 0.2 0.4 0.6 0.8 1
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+False Positive Rate
+True Positive Rate
+Validation ROC
+0 0.2 0.4 0.6 0.8 1
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+False Positive Rate
+True Positive Rate
+Test ROC
+0 0.2 0.4 0.6 0.8 1
+0
+0.1
+0.2
+0.3
+0.4
+0.5
+0.6
+0.7
+0.8
+0.9
+1
+False Positive Rate
+True Positive Rate
+All ROC
+Fig. 5. Receiver operating characteristic
 
-\subsection{Preprocessing \& Word Embedding}\label{sec:cap-num}
-We used ISEAR data set to test our model. This dataset has sentences tagged with an emotion label. The preprocessing task consists of word level parsing along with tokenization and stemming which cleans the text document of unwanted stop words which don't relate to emotion. This enables us to extract the relevant affect-bearing words and the syntactic dependencies between words. The next step is to perform word-level analysis by computing a word embedding for the affect-bearing words by using the glove vector and also alternately learning the word embedding for this model by itself. \\
+\section{CONCLUSION \& FUTURE WORKS}
+From the above results, we can conclude that the
+best accuracy we can achieve is about 76% using
+linear models, which is not much better than our
+benchmark 70.2%. This suggests that the testing
+examples might not be linearly separable. The test
+accuracy of Naive Bayes is close to linear models.
+However, if we can apply the coordinate ascent
+based algorithm, we may achieve much better performance,
+which is a good choice for future works.
+Furthermore, the accuracy of nonlinear models such
+as Neural Network is better than linear models,
+although it’s not as good as we expected. Moreover,
+there might be data corruptions since sometimes
+human judgement can be highly biased. In order to
+achieve better performance, we can either try more
+nonlinear models or use decision trees to improve
+it.
 
-The transcript of the text documents were extracted, converted to all lower case characters. We did not remove punctuations here, because our intuition was that these punctuation marks can have a bearing on the emotion classification of a sentence. We then preprocessed the sentences using NLTK Tokenizer to give a list of tokens. This list of tokens was converted into a word embedding using Word2Vec model for (CNN) and Glove model (LSTM). For each word a 300 dimensional embedding was created. This could have been tweaked, however for simplicity, we stuck with a 300 dimensional vector. \cite{lstm2}
-
-
-\subsection{Application of Machine Learning Techniques}\label{sec:colour-illustrations}
-After the word embeddings are prepared, the word vectors are given as an input to our neural network models. The model is then trained on several hyper parameters like the number of epochs, number of layers, drop out probability, activation function, loss function, optimizer and learning rate.
-
-\subsubsection {Long Short Term Memory(LSTM)\cite{lstm}}
-We have mapped each sentence into a real vector domain called GloVe embedding. This is a technique where words are encoded as real-valued vectors in a high dimensional space, where the similarity between words in terms of meaning translates to closeness in the vector space.
-We have mapped each word into 300 length vector and there are around 9000 unique words so a matrix of 9000x300 is created. This positive integer representation of words is fed into Embedding layer which converts it into word embedding.
-The first layer is the Embedded layer that uses 300 length vectors to represent each word. The next layer is the LSTM layer with 128 memory units and 0.6 dropout to input and recurrent connections of the memory units with LSTM. Finally, because this is a classification problem we use a Dense output layer with seven neurons, a softmax activation function with categorical crossentropy and ADAM optimizer. A large batch size of 128 reviews is used to space out weight updates.  We observed that applying dropout as a parameter to the LSTM Model led to an increase in the accuracy.
-\begin{figure}
-  \centering
-  \includegraphics[width=\columnwidth]{LSTM_image}
-  \caption{LSTM model for word embedding}
-    \label{lstm}
-\end{figure}
-
-In Figure \ref{lstm} xt's are word embedding which is 300 dimensional vector and y's are the output from the output layer. In our LSTM model we have three hidden layers which included embedding layer, lstm layer, dense output layer. The output is passed through a softmax function which gives us a 7 dimensional vector as the output. 
-
-
-\subsubsection{Convolutional Neural Networks}
-For implementing CNN, we implemented a model similar to Kim Yoon's Convolutional Neural Networks for Sentence Classification \cite{kimyoon} \cite{wildmlcnn}.
-The CNN architecture used by us for the emotion analysis task is given in Figure \ref{fig_cnn}. The network used by us works roughly as follows : 
-\begin{itemize}
-\item The first layer embeds the words into lower dimensional vectors.
-\item The next layer performs convolutions over the embeddings from the first layer using multiple filter sizes.
-\item Next up, we max-pool the result of the convolutional layer into a feature vector, over which we add dropout regularization and use softmax at the output layer to classify the result.
-\end{itemize}
-
-
-\begin{figure}
-  \centering
-  \includegraphics[width=\columnwidth]{cnn_arch}
-  \caption{CNN model}
-    \label{fig_cnn}
-\end{figure}
-
-\section{Experimental Setup}
-We run our dataset on several models. 
-All our models presented below were evaluated on a 70-30 train-test split and 90-10 train-dev set split.
-\subsection{Dumb Baseline}
-The dumb baseline model, predicts the emotions at random for a text from the given 7 emotion labels. This approach, not too surprisingly performs poorly.
-
-\subsection{Multinomial Na{\"i}ve Bayes}
-We used TFIDF Vectorizer for Multinomial Na{\"i}ve Bayes which gives us an accuracy of 0.567 on the test dataset. We also used Multinomial Na{\"i}ve Bayes with a Bag of Words approach. This performed slightly lower than the TFIDF Vectorizer and we got an accuracy of 0.562. The results are summarized in Table \ref{tab_nb}. 
-
-\subsection{Extra Tree Classifier}
-We also used Extra tree classifier (Random Forest Classification). With this classifier we changed the word representations using Word2Vec and GloveVectors representation. After changing the word representations, TFIDF Vectorizer was used. The results were not very encouraging with this though. We achieved a maximum accuracy of 0.4313 with Glove representation of the input text. The results are summarized in Table \ref{tab_nb}.
-
-\subsection{SVM	}
-We next implemented a multi-class, one versus all classifier. The input to the SVM was a TFIDF vectorized representation of the words. The accuracy for One v/s All SVM was 0.56489. 
-
-\begin{table}[!htb]
- \centering
- \caption{Accuracy on ISEAR Test Dataset for several algorithms}
- \label{tab_nb}
-\begin{tabular}{ c c c c  } 
-    \noalign{\smallskip}\hline\noalign{\smallskip}
-   Model &  Processing Approach & Accuracy \\
-       \noalign{\smallskip}\hline\noalign{\smallskip}
-\multirow{1}{8em} {Dumb Baseline} &   -- & 0.194\\
-    \noalign{\smallskip}\hline\noalign{\smallskip}
-\multirow{2}{8em} {Random Forest} &   Word2Vec & 0.567021\\
-&  GloveVec & 0.5625\\                
- \noalign{\smallskip}\hline\noalign{\smallskip}
-\multirow{2}{8em} {Na{\"i}ve Bayes} &   With TF-IDF & 0.567021\\
-&  BOW & 0.5625\\                
- \noalign{\smallskip}\hline\noalign{\smallskip}
-\multirow{1}{8em} {SVM} &  One v/s All & 0.5648\\
-    \noalign{\smallskip}\hline
-  \end{tabular} 
-\end{table}
-
-\subsection{CNN}
-For Convolutional Neural Networks, we did not use deep networks, but a shallow network and experimented with other hyperparameter tuning as well as experimenting with the word embeddings. We fixed the sequence length to 75 words. For shorter words, we padded the matrix with all zeros. 75 words as per our intuition was long enough text to judge the emotion of a sentence. The vocab size was 9000. We also varied the filter sizes, which were convolved over the words. The filter sizes were taken as \textit{3,4,5}. The number of filters were taken as 32.  In the embedding layer, we used Word2Vec representation of our dataset and we also experimented by taking random initializing of the word vectors and trained the model to learn the representations on the given inputs. For the output layer, we used softmax as the activation function. The activation used in the intermediate layers was \textit{Relu} Activation.
-
-For hyperparameter tuning and generating accuracy, we split the training dataset into training and testing dataset present the accuracy on both dataset. The following parameters were experimented with : (The best values are indicated alongside)
-\begin{itemize}
-\item Number of Epochs : e  \{50\}
-\item Batch Size : b    \{128\}
-\item L2 Regularization : l2  \{0.60\}
-\item Dropout Probability : d \{0.6\}
-\end{itemize}
-For word embeddings, we used pre-trained \textit{word2vec} vectors and also tried with learning embeddings from scratch. Not surprisingly, the model with word2Vec embeddings performed better in terms of overall accuracy. The results are presented in Table \ref{tab_cnn} \& Table \ref{tab_cnn2}. The training accuracies are very high suggesting overfitting for the model. The training accuracy increases, while the test accuracy decreases indicating overfitting as given in Table \ref{tab_cnn}. The same trend is followed when using with Word2Vec embeddings, however, we saw an improvement in the accuracy on the test dataset over the previous models used so far.
-
-\begin{table}[!htb]
- \centering
- \caption{Accuracy on ISEAR Test Dataset for CNN (With No pre-trained word embeddings) with hyperparameter tuning}
- \label{tab_cnn}
-\begin{tabular}{ c c c c } 
-    \noalign{\smallskip}\hline\noalign{\smallskip}
-	Hyperparameters & Test Accuracy & Training Accuracy \\
-       \noalign{\smallskip}\hline\noalign{\smallskip}
-	e=50, b=30,l2=0.3,d=0.6  & 0.5877 & 0.85230\\
-	e=30, b=30,l2=0.5,d=0.6  & 0.5864 & 0.8872\\
-	e=50, b=128,l2=0.6,d=0.6  & 0.5890 & 0.9053721\\
-	e=40, b=128,l2=0.8,d=0.6  & 0.566489 & 0.955217\\
-    \noalign{\smallskip}\hline
-  \end{tabular} 
-\end{table}
-
-\begin{table}[!htb]
- \centering
- \caption{Accuracy on ISEAR Test Dataset for CNN (Using Word2Vec trained word embeddings)}
- \label{tab_cnn2}
-\begin{tabular}{ c c c c } 
-    \noalign{\smallskip}\hline\noalign{\smallskip}
-	Hyperparameters & Test Accuracy & Training Accuracy \\
-       \noalign{\smallskip}\hline\noalign{\smallskip}
-	e=40, b=128,l2=0.5,d=0.6  & 0.59707 & 0.94812\\
-	e=30, b=128,l2=0.3,d=0.6  & 0.60106 & 0.94634\\
-	e=50, b=128,l2=0.6,d=0.6  & 0.63757 & 0.949\\
-	e=50, b=128,l2=0.8,d=0.6  & 0.56909 & 0.9846\\
-    \noalign{\smallskip}\hline
-  \end{tabular} 
-\end{table}
-
-\subsection{LSTM}
-For LSTM, we used GloveVector as word embeddings. The arhictecture for the model used has been described above. For predicting the best accuracy, the model was trained using a 90:10 training and test split, 80:20 training and test split and finally 70:30 training and test split. The validation split was fixed at 90:10 for training and dev set. The dev set was used to tune the hyperparameters. We used Adam Optimizer as the gradient descent optimization. The following were the hyperparameters of the model that we played around with : (The best values are indicated alongside.) The activation function for output layer used was Softmax activation and the loss function used was categorical cross entropy loss. Also, compared to the CNN Model, the LSTM architecture model does not seem to overfit on the given dataset, indicating that LSTM performs better.
-\begin{itemize}
-\item Number of Epochs : e  \{40\}
-\item Activation Function ac    \{softmax\}
-\item Dropout Probability : d \{0.6\}
-\item Recurrent Dropout : ld \{0.6\}
-\end{itemize}
-
-\begin{table}[!htb]
- \centering
- \caption{Accuracy on ISEAR Test Dataset for LSTM (Using GloveVec trained word embeddings)}
- \label{tab_cnn}
-\begin{tabular}{ c c c c } 
-    \noalign{\smallskip}\hline\noalign{\smallskip}
-	Hyperparameters & Test Accuracy & Training Accuracy \\
-       \noalign{\smallskip}\hline\noalign{\smallskip}
-	e=30,b = 128, d=0.5, ac=sigmoid  & 0.5745 & 0.8527\\
-	e=50,b = 128, d=0.5, ac=sigmoid  & 0.5717 & 0.947\\
-	e=30,b = 100, d=0.6, ac=softmax  & 0.5971 & 0.8952\\
-	e=30,b = 256, d=0.6, ac=softmax  & 0.5984 & 0.8765\\
-	e=30, LSTMDropout : 0.5, recurrent dropout:0.5    & 0.637 & 0.7437\\
-	e=40, LSTMDropout : 0.6, recurrent dropout:0.6   & 0.6463 & 0.7288 \\
-    \noalign{\smallskip}\hline
-  \end{tabular} 
-\end{table}
-
-\section{Conclusion}
-This paper addresses an important and less examined area of sentiment research on emotions, that is, emotion detection from text. The major contribution of this project is to highlight the application of neural networks to learn semantics from a data in order to identify and distinguish various types of emotions in text. We presented Long-Short Term Memory (LSTM) model which is essentially a specific kind of Recurrent Neural Networks (RNNs) and Convolutional neural network (CNN) to detect emotions from text. Experimental results show that our models perform better than other existing Machine learning approaches. Among our approaches, LSTM outperformed CNN and achieved an accuracy of 64.63\%. We tried to experiment by adding more convolutional layers to the CNN Model, but that did not boost the test accuracy a lot, instead the trend of overfitting was observed.
-
-\section{Future Works}
-Emotion detection has been studied. Although not enough time has passed to have established standards in the field, there is some consistency between the approaches, and the algorithms are continuing to increase in accuracy by using more of machine learning approach in this domain. As our future work we would like to work on better text filtering techniques to understand the underlying semantic in documents. We would like to efficiently handle negation phrases in texts like : \textit{The movie was surprisingly horrible}, \textit{He is horribly good}. The former example is a classic example of a negative emotion, whereas the latter is a use of a misnomer. Learning with these bigram and other n-gram variations will help us increase the overall accuracy of the framework. We would also like to make our word embedding more robust by using a special kind of tagging approach called NAVA (Noun Adjective Verb Adverb). NAVA approach has been in use for emotion detection tasks to extract emotion bearing phrases, because some words express affect less apparent then others. Some words express affect more apparently than others. Lets consider the sentence, \textit{Sheldon got lots of new toys for his birthday}. Here, the words \textbf{‘new’}, \textbf{‘toys’} and \textbf{‘birthday’} together convey happiness although it may not seem so when these words are looked at individually. We will also like to use paragraph vector embedding instead of Word embedding for this task. 
-% if have a single appendix:
-%\appendix[Proof of the Zonklar Equations]
-% or
-%\appendix  % for no appendix heading
-% do not use \section anymore after \appendix, only \section*
-% is possibly needed
-
-% use appendices with more than one appendix
-% then use \section to start each appendix
-% you must declare a \section before using any
-% \subsection or using \label (\appendices by itself
-% starts a section numbered zero.)
-%
-
-% Can use something like this to put references on a page
-% by themselves when using endfloat and the captionsoff option.
-\ifCLASSOPTIONcaptionsoff
-  \newpage
-\fi
-
-
-
-% trigger a \newpage just before the given reference
-% number - used to balance the columns on the last page
-% adjust value as needed - may need to be readjusted if
-% the document is modified later
-%\IEEEtriggeratref{8}
-% The "triggered" command can be changed if desired:
-%\IEEEtriggercmd{\enlargethispage{-5in}}
-
-% references section
-
-% can use a bibliography generated by BibTeX as a .bbl file
-% BibTeX documentation can be easily obtained at:
-% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
-% The IEEEtran BibTeX style support page is at:
-% http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
-%
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
 % (used to reserve space for the reference number labels box)
 \begin{thebibliography}{1}
 \bibitem{iseardataset}

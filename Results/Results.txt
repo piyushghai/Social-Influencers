@@ -1,0 +1,52 @@
+================SVM Linear===============
+
+('AuC score on training data:', 0.85964096903503173)
+('AuC score on dev data:', 0.89299283412686958)
+
+=========================================
+
+=================SVM Rbf================
+
+('AuC score on training data:', 0.9288767907016271)
+('AuC score on dev data:', 0.85580083040766919)
+
+==========================================
+
+=================Neural Network================
+
+AuC score on training data: 0.742583466799
+AuC score on dev data: 0.756661659023
+
+==========================================
+
+
+
+=========== LR Best Model ================
+With Feature Selection (C = 0.001)
+
+ROC _ Train  --  0.857437576411
+ROC _ Dev  --  0.888752625082
+
+Without Feature Selection
+
+ROC _ Train  --  0.849165911664
+ROC _ Dev  --  0.88155468988
+
+With Feature Selection (C = 1.0)
+ROC _ Train  --  0.859920004084
+ROC _ Dev  --  0.893481780727
+
+Without Feature Selection
+ROC _ Train  --  0.857433415291
+ROC _ Dev  --  0.888784687154
+
+======== LR - LogLoss -===========
+ROC _ Train  --  0.850868289535    best values on : lmda = 0.001, eta = 0.0001
+ROC _ Dev  --  0.88384712804
+
+
+ROC _ Train  --  0.857227119806
+ROC _ Dev  --  0.889249587201
+
+
+
