@@ -2,17 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e4cda7a-3e0e-4f27-9aa4-0e322685e3b4" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/main.pdf" afterPath="$PROJECT_DIR$/report/main.pdf" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/main.synctex.gz" afterPath="$PROJECT_DIR$/report/main.synctex.gz" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/main.tex" afterPath="$PROJECT_DIR$/report/main.tex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/BaggingWithCV.py" afterPath="$PROJECT_DIR$/BaggingWithCV.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LogisticRegression.py" afterPath="$PROJECT_DIR$/LogisticRegression.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LogisticRegression2.py" afterPath="$PROJECT_DIR$/LogisticRegression2.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/preds_bagg_cv.csv" afterPath="$PROJECT_DIR$/preds_bagg_cv.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/preds_lr.csv" afterPath="$PROJECT_DIR$/preds_lr.csv" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/main.aux" afterPath="$PROJECT_DIR$/report/main.aux" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/report/main.log" afterPath="$PROJECT_DIR$/report/main.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/roc_curves.py" afterPath="$PROJECT_DIR$/roc_curves.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/load_test_data.py" afterPath="$PROJECT_DIR$/load_test_data.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pre_process.py" afterPath="$PROJECT_DIR$/pre_process.py" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -24,11 +15,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="LogisticRegression2.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="LogisticRegression2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/LogisticRegression2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+            <state relative-caret-position="255">
+              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -114,11 +105,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pre_process.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pre_process.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pre_process.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="366">
-              <caret line="57" column="24" lean-forward="false" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
+            <state relative-caret-position="439">
+              <caret line="68" column="12" lean-forward="false" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
               <folding />
             </state>
           </provider>
@@ -127,9 +118,11 @@
       <file leaf-file-name="load_test_data.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/load_test_data.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
-              <folding />
+            <state relative-caret-position="439">
+              <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
+              <folding>
+                <marker date="1493157842000" expanded="true" signature="1317:1525" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -162,13 +155,13 @@
         <option value="$PROJECT_DIR$/XGBoost.py" />
         <option value="$PROJECT_DIR$/Bagging.py" />
         <option value="$PROJECT_DIR$/FeatureSelection.py" />
-        <option value="$PROJECT_DIR$/load_test_data.py" />
-        <option value="$PROJECT_DIR$/pre_process.py" />
         <option value="$PROJECT_DIR$/LogisticRegression.py" />
         <option value="$PROJECT_DIR$/BaggingWithCV.py" />
         <option value="$PROJECT_DIR$/roc_curves.py" />
         <option value="$PROJECT_DIR$/AllMods.py" />
         <option value="$PROJECT_DIR$/LogisticRegression2.py" />
+        <option value="$PROJECT_DIR$/load_test_data.py" />
+        <option value="$PROJECT_DIR$/pre_process.py" />
       </list>
     </option>
   </component>
@@ -591,22 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/load_test_data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="30" column="34" lean-forward="false" selection-start-line="30" selection-start-column="34" selection-end-line="30" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pre_process.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="366">
-          <caret line="57" column="24" lean-forward="false" selection-start-line="57" selection-start-column="24" selection-end-line="57" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LogisticLossRegression.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -681,11 +658,29 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LogisticRegression2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="48" lean-forward="false" selection-start-line="14" selection-start-column="48" selection-end-line="14" selection-end-column="48" />
+        <state relative-caret-position="255">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
           <folding>
             <element signature="e#0#32#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/load_test_data.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="63" column="12" lean-forward="false" selection-start-line="63" selection-start-column="12" selection-end-line="63" selection-end-column="12" />
+          <folding>
+            <marker date="1493157842000" expanded="true" signature="1317:1525" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pre_process.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="439">
+          <caret line="68" column="12" lean-forward="false" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
+          <folding />
         </state>
       </provider>
     </entry>
