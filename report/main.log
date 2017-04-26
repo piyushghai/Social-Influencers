@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  25 APR 2017 16:45
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 APR 2017 00:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -307,6 +307,15 @@ LaTeX Warning: Label `sec:colour-illustrations' multiply defined.
 
 LaTeX Warning: Label `sec:colour-illustrations' multiply defined.
 
+
+LaTeX Warning: Label `tab_lr' multiply defined.
+
+
+LaTeX Warning: Label `tab_lr' multiply defined.
+
+
+LaTeX Warning: Label `tab_lr' multiply defined.
+
 )
 \openout1 = `main.aux'.
 
@@ -400,123 +409,32 @@ Missing character: There is no ” in font ptmr7t!
 ]
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-)
-Missing character: There is no Â in font ptmr7t!
-Missing character: There is no ¯ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ” in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
-Missing character: There is no Î in font ptmr7t!
-Missing character: There is no ¸ in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no — in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
-Missing character: There is no Î in font ptmr7t!
-Missing character: There is no ¸ in font ptmr7t!
-Missing character: There is no Î in font ptmr7t!
-Missing character: There is no ¸ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no ’ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no ’ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no ‡ in font ptmr7t!
-Missing character: There is no Î in font ptmr7t!
-Missing character: There is no ¸ in font ptmr7t!
-Missing character: There is no Î in font ptmr7t!
-Missing character: There is no ¸ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no Ã in font ptmr7t!
-Missing character: There is no — in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no ’ in font ptmr7t!
-Missing character: There is no Î in font ptmr7t!
-Missing character: There is no ¸ in font ptmr7t!
-Missing character: There is no Â in font ptmr7t!
-Missing character: There is no ¯ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no ’ in font ptmr7t!
-Missing character: There is no Î in font ptmr7t!
-Missing character: There is no ¸ in font ptmr7t!
-Missing character: There is no Â in font ptmr7t!
-Missing character: There is no ¯ in font ptmr7t!
-Missing character: There is no Â in font ptmr7t!
-Missing character: There is no ¯ in font ptmr7t!
-Missing character: There is no Â in font ptmr7t!
-Missing character: There is no ¯ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no ‡ in font ptmr7t!
-Missing character: There is no Î in font ptmr7t!
-Missing character: There is no ¸ in font ptmr7t!
-Missing character: There is no Î in font ptmr7t!
-Missing character: There is no ¸ in font ptmr7t!
-Missing character: There is no Â in font ptmr7t!
-Missing character: There is no ¯ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no ’ in font ptmr7t!
-Missing character: There is no Î in font ptmr7t!
-Missing character: There is no ¸ in font ptmr7t!
-Missing character: There is no Â in font ptmr7t!
-Missing character: There is no ¯ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
- [2]
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no € in font ptmr7t!
-Missing character: There is no ™ in font ptmr7t!
+) [2]
+<lr_.png, id=17, 462.528pt x 346.896pt>
+File: lr_.png Graphic file (type png)
+ <use lr_.png>
+Package pdftex.def Info: lr_.png used on input line 554.
+(pdftex.def)             Requested size: 200.75342pt x 200.7499pt.
+ [3 <./lr_.png>]
+<xgboost_dev.png, id=23, 462.528pt x 345.4506pt>
+File: xgboost_dev.png Graphic file (type png)
+ <use xgboost_dev.png>
+Package pdftex.def Info: xgboost_dev.png used on input line 653.
+(pdftex.def)             Requested size: 200.75342pt x 200.75682pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 716--717
-[]\OT1/ptm/m/n/8 The ISEAR Dataset is avail-able from : http://emotion-
+Underfull \hbox (badness 10000) in paragraph at lines 689--690
+[]\OT1/ptm/m/n/8 Sci-kit learn Sup-port Vec-tor Ma-chines : http://scikit-
+ []
+
+[4 <./xgboost_dev.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 691--692
+[]\OT1/ptm/m/n/8 Sci-kit learn Gaus-sian Na[]^^Pve Bayes : http://scikit-
  []
 
 
-Underfull \hbox (badness 5091) in paragraph at lines 732--733
-[]\OT1/ptm/m/n/8 The fol-low-ing is a good link about un-der-stand-ing LSTMs :
- []
-
-
-Underfull \hbox (badness 2809) in paragraph at lines 735--737
-[]\OT1/ptm/m/n/8 A Keras im-ple-men-ta-tion of us-ing pre-trained word em-bed-d
-ings.
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 735--737
-\OT1/ptm/m/n/8 https://blog.keras.io/using-pre-trained-word-embeddings-in-a-ker
-as-
- []
-
-[3]
-Underfull \hbox (badness 1478) in paragraph at lines 741--742
-[]\OT1/ptm/m/n/8 An im-ple-men-ta-tion for CNNs for Sen-tence Clas-si-fi-ca-tio
-n can be
+Overfull \hbox (1.99553pt too wide) in paragraph at lines 691--692
+\OT1/ptm/m/n/8 learn.org/stable/modules/generated/sklearn.naive[]bayes.Gaussian
+NB.html 
  []
 
 
@@ -530,7 +448,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4
+[5
 
 ] (./main.aux)
 
@@ -538,13 +456,13 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5919 strings out of 493014
- 90681 string characters out of 6133351
- 192317 words of memory out of 5000000
- 9392 multiletter control sequences out of 15000+600000
+ 5938 strings out of 493014
+ 90930 string characters out of 6133351
+ 190493 words of memory out of 5000000
+ 9408 multiletter control sequences out of 15000+600000
  41098 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,13n,42p,1615b,1131s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,13n,42p,1433b,1131s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
 exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
 xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
@@ -554,10 +472,10 @@ ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
 f-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fo
 nts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
 urw/times/utmri8a.pfb>
-Output written on main.pdf (4 pages, 102318 bytes).
+Output written on main.pdf (5 pages, 154892 bytes).
 PDF statistics:
- 50 PDF objects out of 1000 (max. 8388607)
- 35 compressed objects within 1 object stream
+ 58 PDF objects out of 1000 (max. 8388607)
+ 38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 1 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 11 words of extra memory for PDF output out of 10000 (max. 10000000)
 

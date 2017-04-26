@@ -59,11 +59,11 @@ def transform_features(x):
 
 
 def normalize(X):
-    # X_norm = X
-    # cols = X.shape[1]
-    # for i in range(cols):
-    #     m = np.mean(X[:, i])
-    #     std = np.std(X[:, i])
-    #     X_norm[:, i] = (X[:, i] - m) / std
-    # return X_norm
-    return X
+    X_norm = X
+    cols = X.shape[1]
+    for i in range(cols):
+        m = np.mean(X[:, i])
+        std = np.std(X[:, i])
+        X_norm[:, i] = (X[:, i] - m) / std
+    return X_norm
+    # return X

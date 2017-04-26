@@ -410,9 +410,8 @@ The growing importance of Social Networks has given an impetus to understand mor
 
 Some nodes/users are more important than others as there behavior affects a larger sets of nodes in the graph. When a user of such a graph is using the network she/he may find some activity shared by some of the other nodes more striking than others. A lot of psychological and cognitive science study shows that ones life is greatly impacted by her/his immediately surrounding and their influence. As social network has become a part of everyone's life, it has become important which are the nodes which has more impact on others i.e which are influential. One application of such a study is to predict what is the general mood of the crowd during election by analyzing the social network handle of all the candidates who stood for it. 
 
-In this project, we address a targeted challenge of this problem presented in a Kaggle competition from 2013 , in which influence on Twitter is predicted from a set of features derived from user activity on the network, such as follower count, retweets received, etc. Rather than identifying influencers in the larger network, we are asked to simply identify which of a pair of users, A and B, is more influential, based on information about their respective activity in the network. This is a binary-classification problem. To find an optimal prediction method, we applied pre-processing methods including feature transformations and dimensionality reduction via principal component analysis (PCA). We used four different machinelearning algorithms—Logistic Regression, Support Vector Machines (SVM), Neural Network, and Gradient Boosting—to model the data. We also tried varying some of the decision boundary options for the SVM by using different kernels and neural network classifiers by varying the activation functions on the hidden layer. Our approach includes a few methods that we did not see in other attempts at this problem, specifically a binary feature transformation, the application of principal component analysis, and gradient boosting. We found the most effective pre-processing method to be a logarithmic transformation of the data, while the most successful model was built with gradient boosting, which achieved an 0.869 AUC using a logarithm transform. Outside of gradient boosting, the model configurations which produced the best results used linear-like decision boundaries.
+In this project, we address a targeted challenge of this problem presented in a Kaggle\cite{kaggle} competition from 2013 , in which influencers on Twitter is predicted from a set of features derived from user activity on the network, such as follower count, retweets received, etc. Rather than identifying influencers in the larger network, we are asked to simply identify which of a pair of users, A and B, is more influential, based on information about their respective activity in the network. This is a binary-classification problem. To find an optimal prediction method, we applied pre-processing methods including feature transformations and dimensionality reduction via principal component analysis (PCA). We used four different machinelearning algorithms—Logistic Regression, Support Vector Machines (SVM), Neural Network, and Gradient Boosting—to model the data. We also tried varying some of the decision boundary options for the SVM by using different kernels and neural network classifiers by varying the activation functions on the hidden layer. Our approach includes a few methods that we did not see in other attempts at this problem, specifically a logarithmic feature transformation, the application of feature selection and gradient boosting. Outside of gradient boosting, the model configurations which produced the best results used linear-like decision boundaries (Logistic Regression).
  
-
 \section{DATASET}\label{sec:page-layout}
 
 This section expands on the data set which we used to try the different models on. 
@@ -442,12 +441,10 @@ The train.csv file contains data points where each data point is a pair wise fea
   \item Network Feature 2
 \end{itemize}
 
-Similarly we have features for two users in each data item in the testing file but the testing file has no class label. There are 3000 training samples and 2500 testing samples in our data set. Given a test sample, our job is to predict which individual in this test sample is more influential.
- 
+Similarly we have features for two users in each data item in the testing file but the testing file has no class label. There are 5500 training samples and 5953 testing samples in our data set. Given a test sample, our job is to predict which individual in this test sample is more influential.
 
-
-%% Notice that paragraph breaks are done with a blank line between paragraphs
-
+\subsection{Kaggle Competition}
+The Kaggle competition is hosted at : \cite{kaggle2}. The evaluation for this competition is based on area under the ROC curve. \cite{roc}.
 
 \subsection{Data Preprocessing
 }\label{sec:formatting-text}
@@ -461,7 +458,7 @@ Since the attributes are of a different scale, we also apply a logarithmic trans
 def transform_features(x):
     return np.log(1 + x)
 \end{lstlisting}
-All of these transformations are applied to all the models used.
+All of these transformations are applied to all the models used. In addition to these, we also apply Z-Score normalization on the dataset for using Gausian Na{\"i}ve Bayes model.
 \section{SYSTEM MODELS
 }\label{sec:fig-tables}
 
@@ -469,74 +466,26 @@ All of these transformations are applied to all the models used.
 \subsection{Baseline}\label{sec:cap-num}
 For baseline, we tried a dumb baseline model, where we classified an influencer based on the number of followers, i.e. if X has more followers than Y, then X is more influential. Using this dumb baseline, we get an accuracy of about \textbf{70.2\%}. This result shows
 that the number of followers is a strong indicator
-of the influencers. However, 70.2\% is not a very satisfying result and hence we use it only as a benchmark. We know further experiment with more models and a bit more pre-processing.
-
+of the influencers. However, 70.2\% is not a very satisfying result and hence we use it only as a benchmark. We know further experiment with more models and a bit more pre-processing. This also suggested that the data can be linearly separable if we choose the right set of features.
 
 \subsection{Logistic Regression}\label{sec:colour-illustrations}
-First, we preprocess the original dataset using the
-previous method. After preprocessing the original
-dataset, different attributes have different ranges
-which vary a lot. Thus the first thing to do is to
-handle the data to make it more uniform and easy
-to deal with. So in order to achieve this, we have a
-normalization on the dataset. For each feature, we
-do the following normalization
-z¯
-(i)
-j =
-z
-(i)
-q
-j
-Pm
-i=1 z
-(i)2
-j
-, z = 1, 2, ..., n (4)
-where m is the number of training examples and n = 11 is the number of features. Because our job is to predict who is more influential given two persons, the number of followers, as we know, plays a significant rule in the prediction.
-A person with more followers than the other is more likely to be judged influential by users. So we will
-multiply the normalization of the first feature, i.e. number of followers, by a positive constant factor
-which is greater than 1 to make it more influential than other features on the prediction. For this logistic regression problem, we have two choices— gradient ascent and Newton’s method to achieve the parameter θ. Since the number of
-features n = 11 is not very large, so it will not take much time to compute the inverse of a n×n matrix.
-Thus Newton’s method should converge faster in this problem and we choose Newton’s method as our implementation. The update rule of the Newton’s method is:
-θ := θ − H
-−1∇θl(θ) (5)
-where H ∈ R
-n×n
-is the Hessian matrix and Hjk =
-−
-Pm
-i=1 hθ(¯z
-(i)
-)(1 − hθ(¯z
-(i)
-))¯z
-(i)
-j
-z¯
-(i)
-k
-, ∇θl(θ) =
-Z¯(~y − hθ(Z¯)).
-Furthermore, we will add cross validation and feature selection to this model, which will be discussed in details in section IV. We write our own code to implement the Newton’s method.
-
+For Logistic Regression, we implemented our own model using two different loss functions : \textit{Logistic Loss} \& \textit{Exponential Loss}. We also used \textit{scikit-learn}'s Logistic Loss for comparison to our own implementation of Logistic Regression. We used Stochastic Gradient Descent for implementing the LR algorithm.
 
 \subsection{SVM}\label{sec:colour-illustrations}
-
-We applied the technique of SVM's with a linear kernel and the results were on par with those of Logistic Regression with an AUC of x. Since the original feature set consisted of 11 features, intuitively mapping them to a higher dimensional space wouldn't improve performance. Thus we preferred the linear kernel over the non-linear kernels since it is a simpler model and hence less prone to over-fitting. 
-
-Moreover, we add cross validation and feature
-selection to this model, which refers to section IV.
+We applied the technique of SVM's with a linear kernel as well as a radial basis kernel function for SVM. For SVM we use scikit learn packages implementation. \cite{svm}
 
 \subsection{Gaussian Na{\"i}ve Bayes}\label{sec:colour-illustrations}
 Logistic regression and SVM are discriminative learning algorithms. Gaussian Na{\"i}ve Bayes, is a generative model. The distribution of the original data is not Gaussian, so we tried Z-Score normalization in order to make it as a Gaussian distribution. In Z-Score, we do the following for every value : 
 \begin{align*}
 z = \frac{x - \mu}{\sigma}
 \end{align*}
-This converts the data into 0 mean and deviation 1. We then used Gaussian Na{\"i}ve Bayes from \textit{sklearn} package.
+This converts the data into 0 mean and deviation 1. We then used Gaussian Na{\"i}ve Bayes from \textit{sklearn} package. \cite{gnb}
 
 \subsection{Neural Network}\label{sec:colour-illustrations}
 We wanted to explore and see how the date set behave in a non-linear environment. The idea was to compare the traditional techniques alongside some state of the art machine learning models which have gained a lot of importance today. Hence we implemented a basic Neural Network model in Python to see how it behaves in this classification task. Our model was customizable which means we could add or remove any number of hidden layers with any number of units in each of them. To our surprise the model worked well but didn't outperform the traditional model. The intuition behind this is that the data set and the features we have are linearly separable. 
+
+\subsection{Boosting}
+We also used scikit-learn's boosting method : specifically, XgBoost \cite{xgboost}. Boosting is an ensemble classifier which combines several weak classifiers to form a hypothesis. Boosting also has advantages over other classifiers in the fact that it is more robust to overfitting on the training data. 
 
 \section{Tuning the Models}
 \subsection{Feature Selection}
@@ -554,217 +503,196 @@ We use held out cross validation, where we partition 80\% of the data as the tra
 
 \section{Results \& Discussions}
 \subsection{Evaluation Criteria}
+The metric that we use to quantify our results was \textit{Area Under the ROC Curve}. ROC is a standard evaluation metric for binary classification problems. We used probabalistic outcomes from the models in order to plot the ROC Curves. \\
+For comparing two models, or results from the same model, we compare their AUC values. A ROC Curve with a larger area signifies a better classification model on the given data.\\
+To improve our evaluations, we applied k-fold cross validation technique. We try this with a k value of 20. In k-fold cross validation, the model is split into k subsets and is run for k iterations, where k-1 subsets are used to train. The AUC results are averaged across all the iterations.
 
+\subsection{Logistic Regression (Our Implementation)}
+For our implementation of Logistic Regression, we tried different loss functions - \textit{Logistic Loss}, \textit{Exponential Loss}. The hyperparameters tuned were : \textit{$\lambda$} (L2 Regularization) \& \textit{$\eta$} (Learning Rate). The results are summarized in Table \ref{tab_lr}. The results in this table are calculated at $\lambda = 0.1 \& \eta = 0.001$.
 
+\begin{table}[!htb]
+ \centering
+ \caption{AUC for Logistic Regression}
+ \label{tab_lr}
+\begin{tabular}{ c c c c } 
+	    \noalign{\smallskip}\hline\noalign{\smallskip}
+		Data &  Loss Function & AUC \\
+    	   \noalign{\smallskip}\hline\noalign{\smallskip}
+		Train &  Logistic Loss & 0.850868\\
+		Dev set & Logistic Loss & 0.8838471\\
+		\noalign{\smallskip}\hline\noalign{\smallskip}
+		Train &  Exponential Loss & 0.8572271\\
+		Dev set & Exponential Loss & 0.88924958\\
+		\noalign{\smallskip}\hline\noalign{\smallskip}	
+  \end{tabular} 
+\end{table}
 
-\subsection{Logistic Regression \& SVM}
-In this section, we apply cross validation and
-feature selection to the linear models, i.e. Logistic
-Regression and SVM. The following figures compare
-the performance among different models.
-In Fig. 2, we use different cross validation options
-on linear models, such as hold-out and k-fold,
-Fig. 2. Test accuracy vs. cross validation options for linear models
-and compare their test accuracies. It is shown that
-cross validation can improve the test accuracy of
-SVM, while having no strong effect on Logistic
-Regression. What’s more, the performance of SVM
-is better than Logistic Regression using cross validation.
-Fig. 3. Test accuracy vs. discretization parameter for linear models
-Fig. 3 shows the test accuracies of SVM and Logistic
-Regression with different numbers of features
-selected. As is shown above, the performance of
-SVM is better, compared with logistic regression.
-The best performance of SVM is achieved when
-4 features are selected, which shows that some
-features are weak indicators. After feature selection,
-we sort the features from the most relevant to the
-least relevant as follows:
-SVM 9 6 7 10 8 5 3 2 1 4 11
-LR 3 6 8 2 9 5 4 7 1 11 10
-where the corresponding feature name refers to section
-II-A. From this table, we can see that although
-the sort results shown above are quite different for
-these two methods, their test accuracies are very
-close. Using linear models, the best accuracy we
-can achieve is 76.00% (highest test accuracy in Fig.
-2 and Fig. 3).
-\subsection{Naive Bayes}
-In this model, we compare the performances of
-different discretization parameters. Here we assume
-that all features have the same number of classes
-(the coordinate ascent based algorithm takes too
-much time). We also mentioned in section III-D that
-logarithm function is used to preprocess the data.
-2 3 4 5 6 7 8 9 10
-0.62
-0.64
-0.66
-0.68
-0.7
-0.72
-0.74
-0.76
-0.78
-0.8
-\# Classes of each attribute
-Accuracy
-With Logarithm
-Without Logarithm
-Fig. 4. Test accuracies vs. number of classes of each feature
-In Fig. 4, we also compare the performance with
-logarithm preprocessing and the one without logarithm
-processing. We can see that logarithm processing
-helps increase the test accuracy and when the
-number of classes of each feature increases, their
-performances approaches. In addition, it turns out
-that different discretization parameters don’t have
-much impact on test accuracy. In this case, the best
-test accuracy is 76.48%.
-\subsection{Neural Network}
-In this model, we use 50 neurons in the hidden
-layer. We also apply hold-out cross validation with
-30% as the validation set. The ROC (Receiver
-Operating Characteristic) curves are shown in Fig.
-5. After training the two-layer network, we get the
-test accuracy 79.04%, which corresponds to the
-area under the test ROC curve.
-0 0.2 0.4 0.6 0.8 1
-0
-0.1
-0.2
-0.3
-0.4
-0.5
-0.6
-0.7
-0.8
-0.9
-1
-False Positive Rate
-True Positive Rate
-Training ROC
-0 0.2 0.4 0.6 0.8 1
-0
-0.1
-0.2
-0.3
-0.4
-0.5
-0.6
-0.7
-0.8
-0.9
-1
-False Positive Rate
-True Positive Rate
-Validation ROC
-0 0.2 0.4 0.6 0.8 1
-0
-0.1
-0.2
-0.3
-0.4
-0.5
-0.6
-0.7
-0.8
-0.9
-1
-False Positive Rate
-True Positive Rate
-Test ROC
-0 0.2 0.4 0.6 0.8 1
-0
-0.1
-0.2
-0.3
-0.4
-0.5
-0.6
-0.7
-0.8
-0.9
-1
-False Positive Rate
-True Positive Rate
-All ROC
-Fig. 5. Receiver operating characteristic
+\subsection{Logistic Regression (From scikit-learn)}
+We also tried using Logistic Regression from \textit{scikit-learn} package. We tried tuning the \textit{C} parameter, which is inverse of 	regularization. The best value of C was found to be 1. The following table lists some results. We also evaluate the results with and without feature selection. 
 
-\section{CONCLUSION \& FUTURE WORKS}
-From the above results, we can conclude that the
-best accuracy we can achieve is about 76% using
-linear models, which is not much better than our
-benchmark 70.2%. This suggests that the testing
-examples might not be linearly separable. The test
-accuracy of Naive Bayes is close to linear models.
-However, if we can apply the coordinate ascent
-based algorithm, we may achieve much better performance,
-which is a good choice for future works.
-Furthermore, the accuracy of nonlinear models such
-as Neural Network is better than linear models,
-although it’s not as good as we expected. Moreover,
-there might be data corruptions since sometimes
-human judgement can be highly biased. In order to
-achieve better performance, we can either try more
-nonlinear models or use decision trees to improve
-it.
+\begin{table}[!htb]
+ \centering
+ \caption{AUC for Logistic Regression, C = 100}
+ \label{tab_lr}
+\begin{tabular}{ c c c c } 
+	    \noalign{\smallskip}\hline\noalign{\smallskip}
+		Data &  Feature Selection & AUC \\
+    	   \noalign{\smallskip}\hline\noalign{\smallskip}
+		Train &  Yes & 0.8574375\\
+		Dev set & No & 0.89348\\
+		\noalign{\smallskip}\hline\noalign{\smallskip}
+		Train &  Exponential Loss & 0.849165911\\
+		Dev set & Exponential Loss & 0.88155468\\
+		\noalign{\smallskip}\hline\noalign{\smallskip}	
+  \end{tabular} 
+\end{table}
+
+In figure \ref{lr_fig} we represent the AUC for Logistic Regression, where the area under the ROC curve is 0.89348.
+
+\begin{figure}
+\centering
+  \includegraphics[width=200px, height = 200px]{lr_}
+  \caption{AUC for Logistic Regression}
+  \label{lr_fig}
+\end{figure}
+
+So we see, that we get nearly comparable results with both the Logistic Regression implementations, indicating that the data is linearly separable. We thus move onto more linear models.
+
+\subsection{Support Vector Machine (RBF)}
+We tried different regularization parameter. The only hyperparameter tuned was : \textit{$C$} (Slack Penalty). The results are summarized in Table \ref{tab_svm2}. The results in this table are calculated at $C = 0.3$.
+
+\begin{table}[!htb]
+ \centering
+ \caption{AUC for SVM (rbf)}
+ \label{tab_svm2}
+\begin{tabular}{ c c c } 
+	    \noalign{\smallskip}\hline\noalign{\smallskip}
+		Data &   AUC \\
+    	   \noalign{\smallskip}\hline\noalign{\smallskip}
+		Train & 0.9288767\\
+		Dev set & 0.8558008\\
+		
+  \end{tabular} 
+\end{table}
+
+\subsection{Support Vector Machine (Linear)}
+We tried different regularization parameter. The only hyperparameter tuned was : \textit{$C$} (Slack Penalty). The results are summarized in Table \ref{tab_svm}.  The results in this table are calculated at $C = 0.3$.
+
+\begin{table}[!htb]
+ \centering
+ \caption{AUC for SVM (linear)}
+ \label{tab_svm}
+\begin{tabular}{ c c c } 
+	    \noalign{\smallskip}\hline\noalign{\smallskip}
+		Data &   AUC \\
+    	   \noalign{\smallskip}\hline\noalign{\smallskip}
+		Train & 0.8596409\\
+		Dev set & 0.8929928\\
+			    \noalign{\smallskip}\hline\noalign{\smallskip}
+  \end{tabular} 
+\end{table}
+
+So we see, that we get nearly different results with different SVM kernel implementations. This is because the data is linearly separable and hence the linear kernel performs so well.
+
+\subsection{Gaussian Na{\"i}ve Bayes}
+With Gaussian Na{\"i}ve Bayes we normalize the data using Z-score normalization, as mentioned in the Pre-Processing. The AUC is presented in Table \ref{nb_tab}.
+
+\begin{table}[!htb]
+ \centering
+ \caption{AUC for Gaussian Na{\"i}ve Bayes}
+ \label{nb_tab}
+\begin{tabular}{ c c c } 
+	    \noalign{\smallskip}\hline\noalign{\smallskip}
+		Data & AUC \\
+    	   \noalign{\smallskip}\hline\noalign{\smallskip}
+		Train &  0.85311513\\
+		Dev Set & 0.88468074\\
+		\noalign{\smallskip}\hline\noalign{\smallskip}
+  \end{tabular} 
+\end{table}
+
+\subsection{Neural Networks}
+After trying differ linear models, we did some experiments on non-linear model. We trained and tested the data set on Neural Network. Instead of using a python package, we implemented the code for NN. We tuned the \textit{hidden layer} and \textit{learning rate} parameter,  and tried different loss functions - \textit{Sigmoid Loss}, \textit{tanh Loss}. The data for results of NN is provided in Table \ref{tab_nn}.
+
+\begin{table}[!htb]
+ \centering
+ \caption{AUC for Neural Networks}
+ \label{tab_nn}
+\begin{tabular}{ c c c } 
+	    \noalign{\smallskip}\hline\noalign{\smallskip}
+		Data &  AUC \\
+    	   \noalign{\smallskip}\hline\noalign{\smallskip}
+		Train &  0.742583466799\\
+		Dev set &  0.756661659023\\
+				\noalign{\smallskip}\hline\noalign{\smallskip}
+  \end{tabular} 
+\end{table}
+
+Neural Network did not perform well as expected. This is because of the kind of data set we have at hand. The data set is linearly separable hence the traditional methods outperformed the more complex non-linear model. This shows the significance of data set analysis before model selection because the most promising models may behave differently depending on the features of the data set.  
+
+\subsection{XGBoost Classifier}
+In this model we used XGBoost classifier to train our model. We tried tuning various parameters \textit{subsample}, \textit{$\eta$}, \textit{colsample\_bytree}, \textit{max\_depth} and \textit{min\_child\_weight}. The best parameters were found to be \textit{$\eta$} : 0.001, \textit{subsample}: 0.3, \textit{colsample\_bytree}: 0.5, \textit{max\_depth}: 3, \textit{min\_child\_weight}: 9. The following table lists some results.  The number of boosting rounds used was 6000.
+ 
+\begin{table}[!htb]
+\centering
+\caption{AUC for XGBoost}
+\label{tab_lr}
+\begin{tabular}{ c c c }
+                    \noalign{\smallskip}\hline\noalign{\smallskip}
+                                Data  & AUC \\
+                   \noalign{\smallskip}\hline\noalign{\smallskip}
+                                Train & 0.86786\\
+                                Dev set  & 0.88758\\                     
+  \end{tabular}
+\end{table}
+ 
+In figure \ref{xgboost_fig} we represent the AUC for XGBoost, where the area under the ROC curve is 0.88758.
+ 
+\begin{figure}
+\centering
+  \includegraphics[width=200px, height = 200px]{xgboost_dev}
+  \caption{AUC for XGBoost}
+  \label{xgboost_fig}
+\end{figure}
+
+\section{Conclusions}
+Our experiments have shown that the models which rely on linear decision boundaries provide the best results on the given dataset. Among the transforms that we used, logarithimic transform proved to be the most effective because it removed the disparity between the various attributes. From the above experiments we can conclude that the AUC for all our models on the dev set varies between 0.87 - 0.89.
+The following table provides a summary of AUC scores on Test Dataset for our submissions made on Kaggle website. We present the results of the best values of the models described above that we submitted. All the results presented here were the ones in which we used Feature selection, as well as did Z-Score \& Log normalization of the data.
+\begin{table}[!htb]
+\centering
+\caption{AUC scores for Test Dataset (As per Kaggle Evaluation)}
+\label{tab_lr}
+\begin{tabular}{ c c c }
+ \noalign{\smallskip}\hline\noalign{\smallskip}
+   Model  & AUC \\
+ \noalign{\smallskip}\hline\noalign{\smallskip}
+ Logistic Regression & 0.86065\\
+ XgBoost & 0.86168\\
+ Gaussian Na{\"i}ve Bayes & 0.84009\\
+ Neural Nets & <Harsh>\\
+ SVM & <Harsh> \\
+ \end{tabular}
+\end{table}
+
+From the table we see that XgBoost performs best since it is an emsemble of several weak classifiers. Followed by XgBoost is Logistic regression. This shows that the data was indeed linearly separable. We also learned about doing an analysis of the dataset, as through our analysis we figured out how the dataset was linearly separable and hence we were able to apply the traditional models instead of the complex models.
+Future works on this problem could involve application of PCA to further select combinations of best attributes in order to drive better results.
 
 % (used to reserve space for the reference number labels box)
 \begin{thebibliography}{1}
-\bibitem{iseardataset}
-The ISEAR Dataset is available from : http://emotion-research.net/toolbox/toolboxdatabase.2006-10-13.2581092615
+\bibitem{kaggle}
+A website for data science competitions. https://www.kaggle.com/
+\bibitem{kaggle2}
+Influencers in Social Networks : https://www.kaggle.com/c/predict-who-is-more-influential-in-a-social-network
+\bibitem{roc}
+https://en.wikipedia.org/wiki/Receiver\_operating\_characteristic
+\bibitem{svm}
+Sci-kit learn Support Vector Machines : http://scikit-learn.org/stable/modules/generated/sklearn.svm.SVC.html
+\bibitem{gnb}
+Sci-kit learn Gaussian Na{\"i}ve Bayes : http://scikit-learn.org/stable/modules/generated/sklearn.naive\_bayes.GaussianNB.html
 
-\bibitem{sentiword}
-SentiWordNet is a lexical resource for opinion mining. More about it can be found at : http://sentiwordnet.isti.cnr.it/
-
-\bibitem{esna}
-S. Mostafa Al Masum, H. Prendinger and M. Ishizuka, "Emotion Sensitive News Agent: An Approach Towards User Centric Emotion Sensing from the News," Web Intelligence, IEEE/WIC/ACM International Conference on, Fremont, CA, 2007, pp. 614-620.
-doi: 10.1109/WI.2007.124
-
-\bibitem{word2vec}
-Word2Vec tool provides an efficient implementation of the continuous bag-of-words and skip-gram architectures for computing vector representations of words. These representations can be subsequently used in many natural language processing applications and for further research. https://code.google.com/archive/p/word2vec/
-
-\bibitem{glove}
-GloVe is an unsupervised learning algorithm for obtaining vector representations for words. Training is performed on aggregated global word-word co-occurrence statistics from a corpus, and the resulting representations showcase interesting linear substructures of the word vector space. https://nlp.stanford.edu/projects/glove/
-
-\bibitem{lstm}
-The following is a good link about understanding LSTMs : http://colah.github.io/posts/2015-08-Understanding-LSTMs/
-
-\bibitem{lstm2}
-A Keras implementation of using pre-trained word embeddings.
-https://blog.keras.io/using-pre-trained-word-embeddings-in-a-keras-model.html
-\bibitem{kimyoon}
-Yoon Kim, Convulational Neural Networks for Sentence Classification, http://arxiv.org/abs/1408.5882
-
-\bibitem{wildmlcnn}
-An implementation for CNNs for Sentence Classification can be found at : http://www.wildml.com/2015/12/implementing-a-cnn-for-text-classification-in-tensorflow/
-
+\bibitem{xgboost}
+XGBoost Library : https://pypi.python.org/pypi/xgboost/
 \end{thebibliography}
-
-% biography section
-% 
-% If you have an EPS/PDF photo (graphicx package needed) extra braces are
-% needed around the contents of the optional argument to biography to prevent
-% the LaTeX parser from getting confused when it sees the complicated
-% \includegraphics command within an optional argument. (You could create
-% your own custom macro containing the \includegraphics command to make things
-% simpler here.)
-%\begin{biography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
-% or if you just want to reserve a space for a photo:
-
-% You can push biographies down or up by placing
-% a \vfill before or after them. The appropriate
-% use of \vfill depends on what kind of text is
-% on the last page and whether or not the columns
-% are being equalized.
-
-%\vfill
-
-% Can be used to pull up biographies so that the bottom of the last one
-% is flush with the other column.
-%\enlargethispage{-5in}
-
 
 % that's all folks
 \end{document}
