@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 APR 2017 13:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 APR 2017 13:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -426,20 +426,20 @@ Package pdftex.def Info: lr_.png used on input line 566.
 File: xgboost_dev.png Graphic file (type png)
 
 <use xgboost_dev.png>
-Package pdftex.def Info: xgboost_dev.png used on input line 665.
+Package pdftex.def Info: xgboost_dev.png used on input line 666.
 (pdftex.def)             Requested size: 200.75342pt x 200.75682pt.
  [4 <./xgboost_dev.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 701--702
+Underfull \hbox (badness 10000) in paragraph at lines 703--704
 []\OT1/ptm/m/n/8 Sci-kit learn Sup-port Vec-tor Ma-chines : http://scikit-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 703--704
+Underfull \hbox (badness 10000) in paragraph at lines 705--706
 []\OT1/ptm/m/n/8 Sci-kit learn Gaus-sian Na[]^^Pve Bayes : http://scikit-
  []
 
 
-Overfull \hbox (1.99553pt too wide) in paragraph at lines 703--704
+Overfull \hbox (1.99553pt too wide) in paragraph at lines 705--706
 \OT1/ptm/m/n/8 learn.org/stable/modules/generated/sklearn.naive[]bayes.Gaussian
 NB.html 
  []
@@ -479,7 +479,7 @@ ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
 f-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fo
 nts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
 urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 255429 bytes).
+Output written on main.pdf (5 pages, 255438 bytes).
 PDF statistics:
  60 PDF objects out of 1000 (max. 8388607)
  38 compressed objects within 1 object stream
