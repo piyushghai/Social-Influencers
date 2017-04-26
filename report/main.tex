@@ -485,7 +485,7 @@ This converts the data into 0 mean and deviation 1. We then used Gaussian Na{\"i
 We wanted to explore and see how the date set behave in a non-linear environment. The idea was to compare the traditional techniques alongside some state of the art machine learning models which have gained a lot of importance today. Hence we implemented a basic Neural Network model in Python to see how it behaves in this classification task. Our model was customizable which means we could add or remove any number of hidden layers with any number of units in each of them. To our surprise the model worked well but didn't outperform the traditional model. The intuition behind this is that the data set and the features we have are linearly separable. 
 
 \subsection{Boosting}
-We also used scikit-learn's boosting method : specifically, XgBoost \cite{xgboost}. Boosting is an ensemble classifier which combines several weak classifiers to form a hypothesis. Boosting also has advantages over other classifiers in the fact that it is more robust to overfitting on the training data. 
+We also used boosting method : specifically, XGBoost \cite{xgboost}. Boosting is an ensemble classifier which combines several weak classifiers to form a hypothesis. Boosting also has advantages over other classifiers in the fact that it is more robust to overfitting on the training data. 
 
 \section{Tuning the Models}
 \subsection{Feature Selection}
