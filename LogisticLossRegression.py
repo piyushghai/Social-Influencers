@@ -4,6 +4,7 @@ from scipy.special import expit
 import load_test_data
 import pre_process
 import write_to_csv
+from sklearn.metrics import roc_curve, auc
 
 
 def LogisticLoss(X, Y, W, lmda):
@@ -36,6 +37,25 @@ def predict(W, x):
     return h
 
 
+def ExpLoss(X, Y, W, lmda):
+    loss = lmda * (W.dot(W))
+    yHat = X.dot(W)
+    activation = -Y * yHat
+    activationExp = np.exp(activation)
+    loss += np.sum(activationExp)
+    return loss
+
+
+def ExpLossGradient(x, y, W, lmda):
+    grad = (x.dot(W))
+    grad = -y * grad
+    grad = np.exp(grad)
+    grad = -y * x * grad
+    Wgrad = 2 * lmda * W
+    Wgrad = Wgrad + grad
+    return Wgrad
+
+
 def SgdLogistic(X, Y, maxIter, learningRate, lmda):
     W = np.zeros(X.shape[1])
     iter = 0
@@ -43,10 +63,10 @@ def SgdLogistic(X, Y, maxIter, learningRate, lmda):
 
     while iter < maxIter:
         for (xi, yi) in zip(X, Y):
-            grad = LogisticGradient(xi, yi, W, lmda)
+            grad = ExpLossGradient(xi, yi, W, lmda)
             W -= learningRate * grad
 
-        loss = LogisticLoss(X, Y, W, lmda)
+        loss = ExpLoss(X, Y, W, lmda)
         print("Iteration : ", iter, "  Loss : ", loss)
         # if np.abs(loss_old - loss) < 0.001:
         #     break
@@ -61,8 +81,10 @@ def LogisticRegression(X, Y, XDev, YDev, XTest, YTest, lmda, learningRate, maxIt
     W = SgdLogistic(X, Y, maxIter, learningRate, lmda)
     nCorrect = 0.
     nIncorrect = 0.
+    pTr = []
     for i in range(len(Y)):
         y_hat = predict(W, X[i,])
+        pTr.append(y_hat)
         if y_hat >= 0.5:
             y_hat = 1
         else:
@@ -77,8 +99,10 @@ def LogisticRegression(X, Y, XDev, YDev, XTest, YTest, lmda, learningRate, maxIt
 
     nCorrect = 0.
     nIncorrect = 0.
+    pDev = []
     for i in range(len(YDev)):
         y_hat = predict(W, XDev[i,])
+        pDev.append(y_hat)
         if y_hat >= 0.5:
             y_hat = 1
         else:
@@ -111,6 +135,15 @@ def LogisticRegression(X, Y, XDev, YDev, XTest, YTest, lmda, learningRate, maxIt
     testAccuracy = nCorrect / (nCorrect + nIncorrect)
 
     write_to_csv.writeToCSV('predictions.csv', prob)
+
+    false_positive_rate, true_positive_rate, _ = roc_curve(Y_train, pTr)
+    roc_auc = auc(false_positive_rate, true_positive_rate)
+    print "ROC _ Train  -- ", roc_auc
+
+    false_positive_rate, true_positive_rate, _ = roc_curve(Y_dev, pDev)
+    roc_auc = auc(false_positive_rate, true_positive_rate)
+    print "ROC _ Dev  -- ", roc_auc
+
     return trainAccuracy, devAccuracy, testAccuracy
 
 
@@ -118,7 +151,7 @@ if __name__ == "__main__":
     X_train, Y_train, X_dev, Y_dev = pre_process.preprocessData('train.csv')
     X_test, Y_test = load_test_data.loadTestData('test.csv')
 
-    lmda = 0.01
+    lmda = 0.1
     learningRate = 0.001
     maxIter = 100
     accuracyTrain, accuracyDev, accuracyTest = LogisticRegression(X_train, Y_train, X_dev, Y_dev, X_test, Y_test, lmda,
@@ -126,4 +159,4 @@ if __name__ == "__main__":
 
     print('Accuracy Train: ', accuracyTrain)
     print('Accuracy Dev: ', accuracyDev)
-    print('Accuracy Test: ', accuracyTest)
+    # print('Accuracy Test: ', accuracyTest)
