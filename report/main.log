@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  24 APR 2017 19:13
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  25 APR 2017 16:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -264,56 +264,77 @@ SSOPTIONconference \hbox to\hsize {\normalfont \footnotesize \box \@tempboxa \h
 fil }\else \hbox to\hsize {\normalfont \footnotesize \box \@tempboxa \hfil }\fi
  \fi \fi .
 \c@ContinuedFloat=\count123
-) (./main.aux
+) (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count124
+\lst@gtempboxa=\box29
+\lst@token=\toks22
+\lst@length=\count125
+\lst@currlwidth=\dimen139
+\lst@column=\count126
+\lst@pos=\count127
+\lst@lostspace=\dimen140
+\lst@width=\dimen141
+\lst@newlines=\count128
+\lst@lineno=\count129
+\lst@maxwidth=\dimen142
 
-LaTeX Warning: Label `sec:formatting-text' multiply defined.
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2015/06/04 1.6 (Carsten Heinz)
+\c@lstnumber=\count130
+\lst@skipnumbers=\count131
+\lst@framebox=\box30
+)
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2015/06/04 1.6 listings configuration
+))
+Package: listings 2015/06/04 1.6 (Carsten Heinz)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics/color.sty
+Package: color 2016/05/09 v1.1c Standard LaTeX Color (DPC)
+
+(/usr/local/texlive/2016/texmf-dist/tex/latex/graphics-cfg/color.cfg
+File: color.cfg 2016/01/02 v1.6 sample color configuration
+)
+Package color Info: Driver file: pdftex.def on input line 144.
+)
+(./main.aux
+
+LaTeX Warning: Label `sec:colour-illustrations' multiply defined.
 
 
-LaTeX Warning: Label `sec:cap-num' multiply defined.
+LaTeX Warning: Label `sec:colour-illustrations' multiply defined.
 
 
-LaTeX Warning: Label `sec:positioning' multiply defined.
-
-
-LaTeX Warning: Label `sec:positioning' multiply defined.
-
-
-LaTeX Warning: Label `sec:positioning' multiply defined.
-
-
-LaTeX Warning: Label `sec:cap-num' multiply defined.
-
-
-LaTeX Warning: Label `tab_cnn' multiply defined.
+LaTeX Warning: Label `sec:colour-illustrations' multiply defined.
 
 )
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 350.
-LaTeX Font Info:    ... okay on input line 350.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 350.
-LaTeX Font Info:    ... okay on input line 350.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 350.
-LaTeX Font Info:    ... okay on input line 350.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 350.
-LaTeX Font Info:    ... okay on input line 350.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 350.
-LaTeX Font Info:    ... okay on input line 350.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 350.
-LaTeX Font Info:    ... okay on input line 350.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 376.
+LaTeX Font Info:    ... okay on input line 376.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 376.
+LaTeX Font Info:    ... okay on input line 376.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 376.
+LaTeX Font Info:    ... okay on input line 376.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 376.
+LaTeX Font Info:    ... okay on input line 376.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 376.
+LaTeX Font Info:    ... okay on input line 376.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 376.
+LaTeX Font Info:    ... okay on input line 376.
  (/usr/local/texlive/2016/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count124
-\scratchdimen=\dimen139
-\scratchbox=\box29
-\nofMPsegments=\count125
-\nofMParguments=\count126
-\everyMPshowfont=\toks22
-\MPscratchCnt=\count127
-\MPscratchDim=\dimen140
-\MPnumerator=\count128
-\makeMPintoPDFobject=\count129
-\everyMPtoPDFconversion=\toks23
+\scratchcounter=\count132
+\scratchdimen=\dimen143
+\scratchbox=\box31
+\nofMPsegments=\count133
+\nofMParguments=\count134
+\everyMPshowfont=\toks23
+\MPscratchCnt=\count135
+\MPscratchDim=\dimen144
+\MPnumerator=\count136
+\makeMPintoPDFobject=\count137
+\everyMPtoPDFconversion=\toks24
 ) (/usr/local/texlive/2016/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
 Package: pdftexcmds 2016/05/10 v0.21 Utility functions of pdfTeX for LuaTeX (HO
 )
@@ -362,93 +383,142 @@ File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 368.
+\c@lstlisting=\count138
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 392.
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ” in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ” in font ptmr7t!
 
 [1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 437--438
-
- []
-
-<LSTM_image.png, id=12, 409.53pt x 450.18187pt>
-File: LSTM_image.png Graphic file (type png)
- <use LSTM_image.png>
-Package pdftex.def Info: LSTM_image.png used on input line 451.
-(pdftex.def)             Requested size: 253.04987pt x 278.17566pt.
- [2 <./LSTM_image.png>]
-Underfull \hbox (badness 2293) in paragraph at lines 460--463
- []\OT1/ptm/m/it/10 Convolutional Neu-ral Net-works: [][] \OT1/ptm/m/n/10 For i
-m-ple-ment-ing
- []
-
-<cnn_arch.png, id=18, 967.615pt x 390.45876pt>
-File: cnn_arch.png Graphic file (type png)
- <use cnn_arch.png>
-Package pdftex.def Info: cnn_arch.png used on input line 471.
-(pdftex.def)             Requested size: 253.04987pt x 102.11267pt.
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 517.
-
-
-(/usr/local/texlive/2016/texmf-dist/tex/latex/psnfss/omsptm.fd
-File: omsptm.fd 
+(/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2015/06/04 1.6 listings language file
 )
-LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 517.
- [3 <./cnn_arch.png>]
-Overfull \hbox (16.93768pt too wide) in paragraph at lines 569--581
- [][] 
- []
+Missing character: There is no Â in font ptmr7t!
+Missing character: There is no ¯ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ” in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+Missing character: There is no Î in font ptmr7t!
+Missing character: There is no ¸ in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no — in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+Missing character: There is no Î in font ptmr7t!
+Missing character: There is no ¸ in font ptmr7t!
+Missing character: There is no Î in font ptmr7t!
+Missing character: There is no ¸ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no ˆ in font ptmr7t!
+Missing character: There is no ’ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no ˆ in font ptmr7t!
+Missing character: There is no ’ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no ˆ in font ptmr7t!
+Missing character: There is no ‡ in font ptmr7t!
+Missing character: There is no Î in font ptmr7t!
+Missing character: There is no ¸ in font ptmr7t!
+Missing character: There is no Î in font ptmr7t!
+Missing character: There is no ¸ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no ˆ in font ptmr7t!
+Missing character: There is no ˆ in font ptmr7t!
+Missing character: There is no Ã in font ptmr7t!
+Missing character: There is no — in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no ˆ in font ptmr7t!
+Missing character: There is no ’ in font ptmr7t!
+Missing character: There is no Î in font ptmr7t!
+Missing character: There is no ¸ in font ptmr7t!
+Missing character: There is no Â in font ptmr7t!
+Missing character: There is no ¯ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no ˆ in font ptmr7t!
+Missing character: There is no ’ in font ptmr7t!
+Missing character: There is no Î in font ptmr7t!
+Missing character: There is no ¸ in font ptmr7t!
+Missing character: There is no Â in font ptmr7t!
+Missing character: There is no ¯ in font ptmr7t!
+Missing character: There is no Â in font ptmr7t!
+Missing character: There is no ¯ in font ptmr7t!
+Missing character: There is no Â in font ptmr7t!
+Missing character: There is no ¯ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no ˆ in font ptmr7t!
+Missing character: There is no ‡ in font ptmr7t!
+Missing character: There is no Î in font ptmr7t!
+Missing character: There is no ¸ in font ptmr7t!
+Missing character: There is no Î in font ptmr7t!
+Missing character: There is no ¸ in font ptmr7t!
+Missing character: There is no Â in font ptmr7t!
+Missing character: There is no ¯ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no ˆ in font ptmr7t!
+Missing character: There is no ’ in font ptmr7t!
+Missing character: There is no Î in font ptmr7t!
+Missing character: There is no ¸ in font ptmr7t!
+Missing character: There is no Â in font ptmr7t!
+Missing character: There is no ¯ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+ [2]
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
+Missing character: There is no â in font ptmr7t!
+Missing character: There is no € in font ptmr7t!
+Missing character: There is no ™ in font ptmr7t!
 
-Missing character: There is no â in font ptmb7t!
-Missing character: There is no € in font ptmb7t!
-Missing character: There is no ˜ in font ptmb7t!
-Missing character: There is no â in font ptmb7t!
-Missing character: There is no € in font ptmb7t!
-Missing character: There is no ™ in font ptmb7t!
-Missing character: There is no â in font ptmb7t!
-Missing character: There is no € in font ptmb7t!
-Missing character: There is no ˜ in font ptmb7t!
-Missing character: There is no â in font ptmb7t!
-Missing character: There is no € in font ptmb7t!
-Missing character: There is no ™ in font ptmb7t!
-Missing character: There is no â in font ptmb7t!
-Missing character: There is no € in font ptmb7t!
-Missing character: There is no ˜ in font ptmb7t!
-Missing character: There is no â in font ptmb7t!
-Missing character: There is no € in font ptmb7t!
-Missing character: There is no ™ in font ptmb7t!
-
-Underfull \hbox (badness 10000) in paragraph at lines 634--635
+Underfull \hbox (badness 10000) in paragraph at lines 716--717
 []\OT1/ptm/m/n/8 The ISEAR Dataset is avail-able from : http://emotion-
  []
 
 
-Underfull \hbox (badness 5091) in paragraph at lines 650--651
+Underfull \hbox (badness 5091) in paragraph at lines 732--733
 []\OT1/ptm/m/n/8 The fol-low-ing is a good link about un-der-stand-ing LSTMs :
  []
 
 
-Underfull \hbox (badness 2809) in paragraph at lines 653--655
+Underfull \hbox (badness 2809) in paragraph at lines 735--737
 []\OT1/ptm/m/n/8 A Keras im-ple-men-ta-tion of us-ing pre-trained word em-bed-d
 ings.
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 653--655
+Underfull \hbox (badness 10000) in paragraph at lines 735--737
 \OT1/ptm/m/n/8 https://blog.keras.io/using-pre-trained-word-embeddings-in-a-ker
 as-
  []
 
-
-Underfull \hbox (badness 1478) in paragraph at lines 659--660
+[3]
+Underfull \hbox (badness 1478) in paragraph at lines 741--742
 []\OT1/ptm/m/n/8 An im-ple-men-ta-tion for CNNs for Sen-tence Clas-si-fi-ca-tio
 n can be
  []
 
-[4]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -460,7 +530,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[5
+[4
 
 ] (./main.aux)
 
@@ -468,24 +538,26 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 4543 strings out of 493014
- 70913 string characters out of 6133351
- 151236 words of memory out of 5000000
- 8031 multiletter control sequences out of 15000+600000
- 40020 words of font info for 81 fonts, out of 8000000 for 9000
+ 5919 strings out of 493014
+ 90681 string characters out of 6133351
+ 192317 words of memory out of 5000000
+ 9392 multiletter control sequences out of 15000+600000
+ 41098 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 38i,12n,39p,1519b,282s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,13n,42p,1615b,1131s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/t
-exmf-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist
-/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
-e1/urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 213489 bytes).
+exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
+xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texl
+ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
+ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
+/2016/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/texm
+f-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fo
+nts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
+urw/times/utmri8a.pfb>
+Output written on main.pdf (4 pages, 102318 bytes).
 PDF statistics:
  50 PDF objects out of 1000 (max. 8388607)
- 32 compressed objects within 1 object stream
+ 35 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
