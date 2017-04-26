@@ -25,15 +25,12 @@ def parameterTuning(X,Y):
 def model(X,Y,X_test,X_dev):
     xgdmat = xgb.DMatrix(X, Y)
 
-    our_params = {'eta': 0.001, 'seed':0, 'subsample': 0.3, 'colsample_bytree': 0.5,
-                   'objective': 'binary:logistic', 'max_depth':3, 'min_child_weight':5,'cv':5,'n_estimators': 10}
-    # our_params = {'eta': 0.000001, 'seed': 0, 'subsample': 0.8, 'colsample_bytree': 0.8,
-    #               'objective': 'binary:logistic', 'max_depth': 100, 'min_child_weight': 1, 'cv': 5}
+    our_params = {'eta': 0.001, 'seed':40, 'subsample': 0.3, 'colsample_bytree': 0.5,'gamma':0,'nthread':4,
+ 'scale_pos_weight':1,'reg_alpha':0.002,'objective': 'binary:logistic', 'max_depth':3, 'min_child_weight':9,'cv':20}
 
-    final_gb = xgb.train(our_params, xgdmat, num_boost_round=5000)
-
+    final_gb = xgb.train(our_params, xgdmat, num_boost_round=6000)
     y_pred = final_gb.predict(xgdmat)
-    #print(y_pred)
+
     print('AuC score on training data:', roc_auc_score(Y_train, y_pred))
     y_pred[y_pred > 0.5] = 1
     y_pred[y_pred <= 0.5] = 0
