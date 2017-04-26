@@ -428,8 +428,8 @@ The data set which we used came from a Kaggle contest. The data set had a
 The train.csv file contains data points where each data point is a pair wise features for two users along with a binary value which reflects which user is more influential. If the value is 0 the first user is more influential and vice-verse. Each user has 11 unique features which are extracted from their twitter profile and recorded in numeric form. The 11 features extracted includes:
 
 \begin{itemize}
-  \item Follwers
-  \item Follwing
+  \item Followers
+  \item Following
   \item Listed
   \item Mentions received
   \item Re-tweets received
@@ -485,18 +485,30 @@ This converts the data into 0 mean and deviation 1. We then used Gaussian Na{\"i
 We wanted to explore and see how the date set behave in a non-linear environment. The idea was to compare the traditional techniques alongside some state of the art machine learning models which have gained a lot of importance today. Hence we implemented a basic Neural Network model in Python to see how it behaves in this classification task. Our model was customizable which means we could add or remove any number of hidden layers with any number of units in each of them. To our surprise the model worked well but didn't outperform the traditional model. The intuition behind this is that the data set and the features we have are linearly separable. 
 
 \subsection{Boosting}
-We also used boosting method : specifically, XGBoost \cite{xgboost}. Boosting is an ensemble classifier which combines several weak classifiers to form a hypothesis. Boosting also has advantages over other classifiers in the fact that it is more robust to overfitting on the training data. 
+We also used scikit-learn's boosting method : specifically, XgBoost \cite{xgboost}. Boosting is an ensemble classifier which combines several weak classifiers to form a hypothesis. Boosting also has advantages over other classifiers in the fact that it is more robust to overfitting on the training data. 
 
 \section{Tuning the Models}
 \subsection{Feature Selection}
-Since our dataset has 11 features, it is quite possible that there are some features which are not quite useful. We used forward selection algorithm to zero in on the best features in order to improve the test accuracy. We used Logistic Regression model in order to select the best accuracies for feature selection. The best features are as follows :
+We did a correlation plot of all the 11 features with the class label. 
+This is represented in Figure \ref{fs_fig}. From the figure\ref{fs_fig} we see that there are some features which will not be useful. We were thus motivated to further prune features using a feature selction algorithm.
+
+\begin{figure}
+\centering
+  \includegraphics[width=200px, height = 200px]{scatter_plt}
+  \caption{Scatter plot for co-relation among all the features }
+  \label{fs_fig}
+\end{figure}
+We used forward selection algorithm to zero in on the best features in order to improve the test accuracy. We used Logistic Regression model in order to select the best accuracies for feature selection. The best features are as follows :
 \begin{itemize}
 \item Follower Count
 \item Listed\_Count
 \item Retweets Received
 \item Network Feature 1
-\item Network Feature 2
+\item Mentions\_Received
+\item Network\_Feature2
 \end{itemize}
+
+We note that \textit{network\_feature 2} was not showing up as important in the correlation plot, but it's addition to the best features set led to an improvement in accuracy.
 
 \subsection{Cross Validation}
 We use held out cross validation, where we partition 80\% of the data as the training set and 20\% of the data as the test set. 
@@ -528,7 +540,7 @@ For our implementation of Logistic Regression, we tried different loss functions
 \end{table}
 
 \subsection{Logistic Regression (From scikit-learn)}
-We also tried using Logistic Regression from \textit{scikit-learn} package. We tried tuning the \textit{C} parameter, which is inverse of 	regularization. The best value of C was found to be 1. The following table lists some results. We also evaluate the results with and without feature selection. 
+We also tried using Logistic Regression from \textit{scikit-learn} package. We tried tuning the \textit{C} parameter, which is inverse of 	regularization. The best value of C was found to be 100. The following table lists some results. We also evaluate the results with and without feature selection. 
 
 \begin{table}[!htb]
  \centering

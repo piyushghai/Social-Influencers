@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 APR 2017 00:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 APR 2017 13:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -409,30 +409,37 @@ Missing character: There is no ” in font ptmr7t!
 ]
 (/usr/local/texlive/2016/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2015/06/04 1.6 listings language file
-) [2]
-<lr_.png, id=17, 462.528pt x 346.896pt>
+)
+<scatter_plt.png, id=12, 652.4375pt x 652.4375pt>
+File: scatter_plt.png Graphic file (type png)
+ <use scatter_plt.png>
+Package pdftex.def Info: scatter_plt.png used on input line 497.
+(pdftex.def)             Requested size: 200.75026pt x 200.75026pt.
+
+[2] <lr_.png, id=19, 462.528pt x 346.896pt>
 File: lr_.png Graphic file (type png)
  <use lr_.png>
-Package pdftex.def Info: lr_.png used on input line 554.
+Package pdftex.def Info: lr_.png used on input line 566.
 (pdftex.def)             Requested size: 200.75342pt x 200.7499pt.
- [3 <./lr_.png>]
-<xgboost_dev.png, id=23, 462.528pt x 345.4506pt>
+ [3 <./scatter_plt.png> <./lr_.png>] <xgboost_dev.png, id=25, 462.528pt x 345.4
+506pt>
 File: xgboost_dev.png Graphic file (type png)
- <use xgboost_dev.png>
-Package pdftex.def Info: xgboost_dev.png used on input line 653.
-(pdftex.def)             Requested size: 200.75342pt x 200.75682pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 689--690
+<use xgboost_dev.png>
+Package pdftex.def Info: xgboost_dev.png used on input line 665.
+(pdftex.def)             Requested size: 200.75342pt x 200.75682pt.
+ [4 <./xgboost_dev.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 701--702
 []\OT1/ptm/m/n/8 Sci-kit learn Sup-port Vec-tor Ma-chines : http://scikit-
  []
 
-[4 <./xgboost_dev.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 691--692
+
+Underfull \hbox (badness 10000) in paragraph at lines 703--704
 []\OT1/ptm/m/n/8 Sci-kit learn Gaus-sian Na[]^^Pve Bayes : http://scikit-
  []
 
 
-Overfull \hbox (1.99553pt too wide) in paragraph at lines 691--692
+Overfull \hbox (1.99553pt too wide) in paragraph at lines 703--704
 \OT1/ptm/m/n/8 learn.org/stable/modules/generated/sklearn.naive[]bayes.Gaussian
 NB.html 
  []
@@ -456,10 +463,10 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 5938 strings out of 493014
- 90930 string characters out of 6133351
- 190493 words of memory out of 5000000
- 9408 multiletter control sequences out of 15000+600000
+ 5944 strings out of 493014
+ 91032 string characters out of 6133351
+ 190504 words of memory out of 5000000
+ 9413 multiletter control sequences out of 15000+600000
  41098 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,13n,42p,1433b,1131s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -472,10 +479,10 @@ ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
 f-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fo
 nts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
 urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 154868 bytes).
+Output written on main.pdf (5 pages, 255429 bytes).
 PDF statistics:
- 58 PDF objects out of 1000 (max. 8388607)
+ 60 PDF objects out of 1000 (max. 8388607)
  38 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
