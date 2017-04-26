@@ -9,6 +9,7 @@ import write_to_csv
 import roc_curves
 from sklearn.model_selection  import GridSearchCV
 from sklearn.metrics import accuracy_score
+from sklearn.metrics import roc_auc_score
 
 def parameterTuning(X,Y):
     cv_params = {'learning_rate': [0.001,0.002,0.003,0.004, 0.005, 0.006,0.007], 'subsample': [0.5,0.7, 0.8, 0.9], 'max_depth': [1,3, 5, 7, 8, 9],
@@ -32,8 +33,11 @@ def model(X,Y,X_test,X_dev):
     final_gb = xgb.train(our_params, xgdmat, num_boost_round=5000)
 
     y_pred = final_gb.predict(xgdmat)
+    #print(y_pred)
+    print('AuC score on training data:', roc_auc_score(Y_train, y_pred))
     y_pred[y_pred > 0.5] = 1
     y_pred[y_pred <= 0.5] = 0
+
     print(accuracy_score(y_pred, Y_train))
 
     testdmat = xgb.DMatrix(X_test)
@@ -55,6 +59,6 @@ if __name__ == "__main__":
 
     #parameterTuning(X_train,Y_train)
     devPred = model(X_train,Y_train,X_test,X_dev)
-    roc_curves.plotROCCuves(Y_dev, devPred, 'boost', 'XGBoost')
+    roc_curves.plotROCCuves(Y_dev, devPred, 'boost', 'XGBoost (Dev) - ')
 
 

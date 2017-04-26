@@ -48,5 +48,11 @@ ROC _ Dev  --  0.88384712804
 ROC _ Train  --  0.857227119806
 ROC _ Dev  --  0.889249587201
 
+======== XGBoost ===========
+'eta': 0.001, 'seed':0, 'subsample': 0.3, 'colsample_bytree': 0.5, 'objective': 'binary:logistic', 'max_depth':3, 'min_child_weight':5, 'cv':5, 'n_estimators': 10
+
+ROC_Train -- 0.867539013293
+ROC_Dev -- 0.88826
+
 
 
