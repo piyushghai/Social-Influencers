@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 APR 2017 00:35
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  26 APR 2017 00:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -426,7 +426,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 689--690
 []\OT1/ptm/m/n/8 Sci-kit learn Sup-port Vec-tor Ma-chines : http://scikit-
  []
 
-
+[4 <./xgboost_dev.png>]
 Underfull \hbox (badness 10000) in paragraph at lines 691--692
 []\OT1/ptm/m/n/8 Sci-kit learn Gaus-sian Na[]^^Pve Bayes : http://scikit-
  []
@@ -437,7 +437,6 @@ Overfull \hbox (1.99553pt too wide) in paragraph at lines 691--692
 NB.html 
  []
 
-[4 <./xgboost_dev.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -473,7 +472,7 @@ ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
 f-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fo
 nts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
 urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 154875 bytes).
+Output written on main.pdf (5 pages, 154892 bytes).
 PDF statistics:
  58 PDF objects out of 1000 (max. 8388607)
  38 compressed objects within 1 object stream
