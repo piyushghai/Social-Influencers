@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  27 APR 2017 12:31
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2016.5.22)  27 APR 2017 12:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -310,9 +310,6 @@ LaTeX Warning: Label `sec:colour-illustrations' multiply defined.
 
 LaTeX Warning: Label `tab_lr' multiply defined.
 
-
-LaTeX Warning: Label `tab_lr' multiply defined.
-
 )
 \openout1 = `main.aux'.
 
@@ -413,11 +410,7 @@ File: scatter_plt.png Graphic file (type png)
 Package pdftex.def Info: scatter_plt.png used on input line 153.
 (pdftex.def)             Requested size: 200.75026pt x 200.75026pt.
 
-[2]
-
-LaTeX Warning: Reference `tab_lr2' on page 3 undefined on input line 218.
-
-<lr_.png, id=19, 462.528pt x 346.896pt>
+[2] <lr_.png, id=19, 462.528pt x 346.896pt>
 File: lr_.png Graphic file (type png)
  <use lr_.png>
 Package pdftex.def Info: lr_.png used on input line 222.
@@ -460,16 +453,13 @@ Before submitting the final camera ready copy, remember to:
 
 ] (./main.aux)
 
-LaTeX Warning: There were undefined references.
-
-
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
  5947 strings out of 493014
  91059 string characters out of 6133351
- 190346 words of memory out of 5000000
+ 190356 words of memory out of 5000000
  9416 multiletter control sequences out of 15000+600000
  41098 words of font info for 82 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -483,7 +473,7 @@ ve/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
 f-dist/fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fo
 nts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/
 urw/times/utmri8a.pfb>
-Output written on main.pdf (5 pages, 255721 bytes).
+Output written on main.pdf (5 pages, 255502 bytes).
 PDF statistics:
  60 PDF objects out of 1000 (max. 8388607)
  38 compressed objects within 1 object stream
