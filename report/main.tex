@@ -138,7 +138,7 @@ z = \frac{x - \mu}{\sigma}
 This converts the data into 0 mean and deviation 1. We then used Gaussian Na{\"i}ve Bayes from \textit{sklearn} package. \cite{gnb}
 
 \subsection{Neural Network}\label{sec:colour-illustrations}
-We wanted to explore and see how the date set behaves in a non-linear environment. The idea was to compare the traditional techniques alongside some state of the art machine learning models which have gained a lot of importance today. Hence we implemented a basic Neural Network model in Python to see how it behaves in this classification task. Our model was customizable which means we could add or remove any number of hidden layers with any number of units in each of them. To our surprise the model worked well but didn't outperform the traditional model. The intuition behind this is that the data set and the features we have are linearly separable. 
+We wanted to explore and see how the dataset behaves in a non-linear environment. The idea was to compare the traditional techniques alongside state of the art machine learning models which have gained a lot of importance today. Hence we implemented a basic Neural Network model in Python to see how it behaves in this classification task. Our model was customizable, we could add or remove any number of hidden layers with any number of units in each of them. To our surprise the model worked well but didn't outperform the traditional model. The intuition behind this is that the data set and the features we have are linearly separable. 
 
 \subsection{Boosting}
 We also used scikit-learn's boosting method : specifically, XgBoost \cite{xgboost}. Boosting is an ensemble classifier which combines several weak classifiers to form a hypothesis. Boosting also has advantages over other classifiers in the fact that it is more robust to overfitting on the training data. 
@@ -166,8 +166,8 @@ We used forward selection algorithm to zero in on the best features in order to 
 
 We note that \textit{network\_feature 2} was not showing up as important in the correlation plot, but it's addition to the best features set led to an improvement in accuracy.
 
-\subsection{Cross Validation}
-We use held out cross validation, where we partition 80\% of the data as the training set and 20\% of the data as the test set. 
+\subsection{k- fold Cross Validation}
+We used k-fold cross validation with k=20, where the data is partitioned into k subsets, with k-1 for training and the remaining for test. The results are averaged across all the iterations for uniformity.    
 
 \section{Results \& Discussions}
 \subsection{Evaluation Criteria}
@@ -227,7 +227,7 @@ In figure \ref{lr_fig} we represent the AUC for Logistic Regression, where the a
 So we see, that we get nearly comparable results with both the Logistic Regression implementations, indicating that the data is linearly separable. We thus move onto more linear models.
 
 \subsection{Support Vector Machine (RBF)}
-We tried different regularization parameter. The only hyperparameter tuned was : \textit{$C$} (Slack Penalty). The results are summarized in Table \ref{tab_svm2}. The results in this table are calculated at $C = 0.3$.
+We tried different regularization parameters. The only hyperparameter tuned was : \textit{$C$} (Slack Penalty). The results are summarized in Table \ref{tab_svm2}. The results in this table are calculated at $C = 0.3$.
 
 \begin{table}[!htb]
  \centering
@@ -244,7 +244,7 @@ We tried different regularization parameter. The only hyperparameter tuned was :
 \end{table}
 
 \subsection{Support Vector Machine (Linear)}
-We tried different regularization parameter. The only hyperparameter tuned was : \textit{$C$} (Slack Penalty). The results are summarized in Table \ref{tab_svm}.  The results in this table are calculated at $C = 0.3$.
+We tried different regularization parameters. The only hyperparameter tuned was : \textit{$C$} (Slack Penalty). The results are summarized in Table \ref{tab_svm}.  The results in this table are calculated at $C = 0.3$.
 
 \begin{table}[!htb]
  \centering
@@ -280,7 +280,7 @@ With Gaussian Na{\"i}ve Bayes we normalize the data using Z-score normalization,
 \end{table}
 
 \subsection{Neural Networks}
-After trying differ linear models, we did some experiments on non-linear model. We trained and tested the data set on Neural Network. Instead of using a python package, we implemented the code for NN. We tuned the \textit{hidden layer} and \textit{learning rate} parameter,  and tried different loss functions - non-linear ones like :  \textit{Sigmoid Loss}, \textit{tanh Loss} \& linear loss function : \textit{Identity activation}. The data for results of NN is provided in Table \ref{tab_nn}.
+After trying different linear models, we did some experiments on non-linear models. We trained and tested the data set on Neural Networks. Instead of using a python package, we implemented the code for NN. We tuned the \textit{hidden layer} and \textit{learning rate} parameter,  and tried different loss functions - non-linear ones like :  \textit{Sigmoid Loss}, \textit{tanh Loss} \& linear loss function : \textit{Identity activation}. The data for results of NN is provided in Table \ref{tab_nn}.
 
 \begin{table}[!htb]
  \centering
@@ -296,7 +296,7 @@ After trying differ linear models, we did some experiments on non-linear model. 
   \end{tabular} 
 \end{table}
 
-Neural Network did not perform well as expected. This is because of the kind of data set we have at hand. The data set is linearly separable hence the traditional methods outperformed the more complex non-linear model. This shows the significance of data set analysis before model selection because the most promising models may behave differently depending on the features of the data set.  
+Neural Networks did not perform as well as expected. This is because of the kind of dataset we have at hand. The dataset is linearly separable hence the traditional methods outperformed the more complex non-linear models. This shows the significance of dataset analysis prior to model selection. The most promising models may behave differently depending on the features of the dataset.  
 
 \subsection{XGBoost Classifier}
 In this model we used XGBoost classifier to train our model. We tried tuning various parameters \textit{subsample}, \textit{$\eta$}, \textit{colsample\_bytree}, \textit{max\_depth} and \textit{min\_child\_weight}. The best parameters were found to be \textit{$\eta$} : 0.001, \textit{subsample}: 0.3, \textit{colsample\_bytree}: 0.5, \textit{max\_depth}: 3, \textit{min\_child\_weight}: 9. The following table lists some results.  The number of boosting rounds used was 6000.
