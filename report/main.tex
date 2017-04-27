@@ -54,7 +54,7 @@ Email: \IEEEauthorrefmark{1}arora.170@osu.edu,
 
 \begin{abstract}
 %\boldmath
-Social media like twitter has given advent to growing importance to understand the behavior of these networks. More importantly these graph networks shows different patterns which are interesting to analyze. Some nodes becomes almost a sink where as some node acts like a source of outgoing links. Understanding these patterns will help in various applications and specially in experiments like Network A/B Testing where we need to introduce some new features to a treatment group restricting the control group. In out project we intended to experiment and analyze on one such pattern where we try to identify which node is more influential when compared to another node. To understand such a behavior we used a Twitter network data set which had 11 features for each node and we applied machine learning techniques to understanding the underlying features to classify the task at hand.
+Social media like twitter has given advent to growing importance to understand the behavior of these networks. More importantly these graph networks shows different patterns which are interesting to analyze. Some nodes becomes almost a sink where as some node acts like a source of outgoing links. Understanding these patterns will help in various applications and specially in experiments like Network A/B Testing where we need to introduce some new features to a treatment group restricting the control group. In our project we intended to experiment and analyze on one such pattern where we try to identify which node is more influential when compared to another node. To understand such a behavior we used a Twitter network data set which had 11 features for each node and we applied machine learning techniques to understanding the underlying features to classify the task at hand.
  
 \end{abstract}
 % IEEEtran.cls defaults to using nonbold math in the Abstract.
@@ -280,7 +280,7 @@ With Gaussian Na{\"i}ve Bayes we normalize the data using Z-score normalization,
 \end{table}
 
 \subsection{Neural Networks}
-After trying differ linear models, we did some experiments on non-linear model. We trained and tested the data set on Neural Network. Instead of using a python package, we implemented the code for NN. We tuned the \textit{hidden layer} and \textit{learning rate} parameter,  and tried different loss functions - \textit{Sigmoid Loss}, \textit{tanh Loss}. The data for results of NN is provided in Table \ref{tab_nn}.
+After trying differ linear models, we did some experiments on non-linear model. We trained and tested the data set on Neural Network. Instead of using a python package, we implemented the code for NN. We tuned the \textit{hidden layer} and \textit{learning rate} parameter,  and tried different loss functions - non-linear ones like :  \textit{Sigmoid Loss}, \textit{tanh Loss} \& linear loss function : \textit{Identity activation}. The data for results of NN is provided in Table \ref{tab_nn}.
 
 \begin{table}[!htb]
  \centering
@@ -290,8 +290,8 @@ After trying differ linear models, we did some experiments on non-linear model. 
 	    \noalign{\smallskip}\hline\noalign{\smallskip}
 		Data &  AUC \\
     	   \noalign{\smallskip}\hline\noalign{\smallskip}
-		Train &  0.742583466799\\
-		Dev set &  0.756661659023\\
+		Train &  0.8599\\
+		Dev set &  0.8927\\
 				\noalign{\smallskip}\hline\noalign{\smallskip}
   \end{tabular} 
 \end{table}
@@ -338,7 +338,7 @@ The following table provides a summary of AUC scores on Test Dataset for our sub
  Logistic Regression & 0.86065\\
  XgBoost & 0.86168\\
  Gaussian Na{\"i}ve Bayes & 0.82009\\
- Neural Nets & 0.85590\\
+ Neural Nets & 0.84182\\
  SVM & 0.83786 \\
  		\noalign{\smallskip}\hline\noalign{\smallskip}	
  \end{tabular}
