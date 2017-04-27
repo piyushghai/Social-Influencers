@@ -1,7 +1,7 @@
 ### Project: Social Influencers
  - The project is based on Kaggle Competition on Social Influencers. It is availabe here : https://www.kaggle.com/c/predict-who-is-more-influential-in-a-social-network. 
 
-###Team :
+### Team :
  - [Navnith](https://github.com/navnith)
  - [Pragya](https://github.com/pragyaarora)
  - [Piyush](https://github.com/piyushghai)
