@@ -73,15 +73,14 @@ The growing importance of Social Networks has given an impetus to understand mor
 
 Some nodes/users are more important than others as there behavior affects a larger sets of nodes in the graph. When a user of such a graph is using the network she/he may find some activity shared by some of the other nodes more striking than others. A lot of psychological and cognitive science study shows that ones life is greatly impacted by her/his immediately surrounding and their influence. As social network has become a part of everyone's life, it has become important which are the nodes which has more impact on others i.e which are influential. One application of such a study is to predict what is the general mood of the crowd during election by analyzing the social network handle of all the candidates who stood for it. 
 
-In this project, we address a targeted challenge of this problem presented in a Kaggle\cite{kaggle} competition from 2013 , in which influencers on Twitter is predicted from a set of features derived from user activity on the network, such as follower count, retweets received, etc. Rather than identifying influencers in the larger network, we are asked to simply identify which of a pair of users, A and B, is more influential, based on information about their respective activity in the network. This is a binary-classification problem. To find an optimal prediction method, we applied pre-processing methods including feature transformations and dimensionality reduction via principal component analysis (PCA). We used four different machinelearning algorithms—Logistic Regression, Support Vector Machines (SVM), Neural Network, and Gradient Boosting—to model the data. We also tried varying some of the decision boundary options for the SVM by using different kernels and neural network classifiers by varying the activation functions on the hidden layer. Our approach includes a few methods that we did not see in other attempts at this problem, specifically a logarithmic feature transformation, the application of feature selection and gradient boosting. Outside of gradient boosting, the model configurations which produced the best results used linear-like decision boundaries (Logistic Regression).
+In this project, we address a targeted challenge of this problem presented in a Kaggle\cite{kaggle} competition from 2013 , in which influencers on Twitter is predicted from a set of features derived from user activity on the network, such as follower count, retweets received, etc. Rather than identifying influencers in the larger network, we are asked to simply identify which of a pair of users, A and B, is more influential, based on information about their respective activity in the network. This is a binary-classification problem. To find an optimal prediction method, we applied pre-processing methods including feature transformations. We used four different machine learning algorithms : Logistic Regression, Support Vector Machines (SVM), Neural Network, and Gradient Boosting, to model the data. We also tried varying some of the decision boundary options for the SVM by using different kernels and neural network classifiers by varying the activation functions on the hidden layer. Our approach includes a few methods that we did not see in other attempts at this problem, specifically a logarithmic feature transformation, the application of feature selection and gradient boosting. Outside of gradient boosting, the model configurations which produced the best results used linear-like decision boundaries (Logistic Regression).
  
 \section{DATASET}\label{sec:page-layout}
 
 This section expands on the data set which we used to try the different models on. 
 
-
 \subsection{Original Dataset}\label{sec:formatting}
-The data set which we used came from a Kaggle contest. The data set had a 
+The data set which we used came from a Kaggle contest. The data set had the following files : 
 \begin{itemize}
   \item train.csv
   \item test.csv
@@ -111,7 +110,6 @@ The Kaggle competition is hosted at : \cite{kaggle2}. The evaluation for this co
 
 \subsection{Data Preprocessing
 }\label{sec:formatting-text}
-
 Since the data is a numerical data, we use some pre-processing techniques on it. The dataset consists of 22 attributes which is essentially 11 attributes for each user in contention. Since we have to compare who is more influential in the network, we subtract related attributes for each user, to reduce the dimensionality to 11. The following is the transformation applied : 
 \begin{align*}
 a\textsubscript{j} = x\textsubscript{j} - x\textsubscript{j+11}, j = 1,2,3 .... , 11. 
@@ -124,8 +122,6 @@ def transform_features(x):
 All of these transformations are applied to all the models used. In addition to these, we also apply Z-Score normalization on the dataset for using Gausian Na{\"i}ve Bayes model.
 \section{SYSTEM MODELS
 }\label{sec:fig-tables}
-
-
 \subsection{Baseline}\label{sec:cap-num}
 For baseline, we tried a dumb baseline model, where we classified an influencer based on the number of followers, i.e. if X has more followers than Y, then X is more influential. Using this dumb baseline, we get an accuracy of about \textbf{70.2\%}. This result shows
 that the number of followers is a strong indicator
@@ -145,7 +141,7 @@ z = \frac{x - \mu}{\sigma}
 This converts the data into 0 mean and deviation 1. We then used Gaussian Na{\"i}ve Bayes from \textit{sklearn} package. \cite{gnb}
 
 \subsection{Neural Network}\label{sec:colour-illustrations}
-We wanted to explore and see how the date set behave in a non-linear environment. The idea was to compare the traditional techniques alongside some state of the art machine learning models which have gained a lot of importance today. Hence we implemented a basic Neural Network model in Python to see how it behaves in this classification task. Our model was customizable which means we could add or remove any number of hidden layers with any number of units in each of them. To our surprise the model worked well but didn't outperform the traditional model. The intuition behind this is that the data set and the features we have are linearly separable. 
+We wanted to explore and see how the date set behaves in a non-linear environment. The idea was to compare the traditional techniques alongside some state of the art machine learning models which have gained a lot of importance today. Hence we implemented a basic Neural Network model in Python to see how it behaves in this classification task. Our model was customizable which means we could add or remove any number of hidden layers with any number of units in each of them. To our surprise the model worked well but didn't outperform the traditional model. The intuition behind this is that the data set and the features we have are linearly separable. 
 
 \subsection{Boosting}
 We also used scikit-learn's boosting method : specifically, XgBoost \cite{xgboost}. Boosting is an ensemble classifier which combines several weak classifiers to form a hypothesis. Boosting also has advantages over other classifiers in the fact that it is more robust to overfitting on the training data. 
@@ -153,7 +149,7 @@ We also used scikit-learn's boosting method : specifically, XgBoost \cite{xgboos
 \section{Tuning the Models}
 \subsection{Feature Selection}
 We did a correlation plot of all the 11 features with the class label. 
-This is represented in Figure \ref{fs_fig}. From the figure\ref{fs_fig} we see that there are some features which will not be useful. We were thus motivated to further prune features using a feature selction algorithm.
+This is represented in Figure \ref{fs_fig}. From the figure we see that there are some features which will not be useful. We were thus motivated to further prune features using a feature selction algorithm.
 
 \begin{figure}
 \centering
